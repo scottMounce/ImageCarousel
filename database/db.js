@@ -1,46 +1,21 @@
 const mysql = require('mysql');
+const Promise = require('bluebird');
+const database = 'imageCarousel';
+const initialize = require('./initialize.js');
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'pineapple',
 });
 
-connection.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log('connected');
-  connection.query(`CREATE DATABASE IF NOT EXISTS imageCarousel`,
-    (err) => {
-      if (err) {
-        console.log(err);
-      }
-      connection.query(`USE imageCarousel`, (err) => {
-        if (err) {
-          throw err;
-        }
-        connection.query(`CREATE TABLE IF NOT EXISTS Products (
-      id int(10) AUTO_INCREMENT PRIMARY KEY,
-      product varchar(30) NOT NULL )`,
-          (err) => {
-            if (err) {
-              throw err;
-            }
-            console.log('Products Table created');
-            connection.query(`CREATE TABLE IF NOT EXISTS Photos (
-      id int(10) AUTO_INCREMENT PRIMARY KEY,
-      url varchar(100) NOT NULL,
-      productId int(10),
+const db = Promise.promisifyAll(connection, { multiArgs: true });
 
-      FOREIGN KEY(productId) REFERENCES Products(id))`,
-              (err) => {
-                if (err) {
-                  throw err;
-                }
-                console.log('Photos Table created');
-              });
-          });
-      });
-    });
-});
+
+db.connectAsync()
+  .then(() => console.log(`Connected to the ${database} db`))
+  .then(() => db.queryAsync(`CREATE DATABASE IF NOT EXISTS ${database}`))
+  .then(() => db.queryAsync(`USE ${database}`))
+  .then(() => initialize(db));
+
+module.exports = db;
