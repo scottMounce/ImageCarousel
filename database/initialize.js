@@ -29,15 +29,15 @@ module.exports = (db) => {
     // specific images to show that the db tables connect properly
     // and the API correctly fetches the data for a product from both
     .then(() => db.queryAsync(`
-  INSERT INTO Products (id, product) VALUES ('1', 'Pumpkin Pie')`))
+  INSERT IGNORE INTO Products (id, product) VALUES ('1', 'Pumpkin Pie')`))
     .then(() => db.queryAsync(`
-  INSERT INTO Products (id, product) VALUES ('2', 'Breakfast Skillet')`))
+  INSERT IGNORE INTO Products (id, product) VALUES ('2', 'Breakfast Skillet')`))
     .then(() => db.queryAsync(`
-  INSERT INTO Products (id, product) VALUES ('3', 'Pizza')`))
+  INSERT IGNORE INTO Products (id, product) VALUES ('3', 'Pizza')`))
     .then(() => db.queryAsync(`
-  INSERT INTO Products (id, product) VALUES ('4', 'Shark')`))
+  INSERT IGNORE INTO Products (id, product) VALUES ('4', 'Shark')`))
     .then(() => db.queryAsync(`
-  INSERT INTO Products (id, product) VALUES ('5', 'Watermelon')`))
+  INSERT IGNORE INTO Products (id, product) VALUES ('5', 'Watermelon')`))
 
 
     // Insert random data to fill out the database using faker
@@ -51,8 +51,12 @@ module.exports = (db) => {
       }
     })
     .then(() => db.queryAsync(`
-    INSERT INTO Products (product) VALUES ?`,
+    INSERT IGNORE INTO Products (product) VALUES ?`,
       [seededProducts]))
+
+    // When setup and seeding is complete, alert the user
+    .then(() => console.log('Database setup and seeding complete!'))
+    .then(() => db.end())
 
     // This catches errors in the seeding process
     .catch(err => {

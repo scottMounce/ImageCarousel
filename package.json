@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "build": "webpack -d --watch"
+    "build": "webpack -d --watch",
+    "init_db": "node ./database/db.js"
   },
   "dependencies": {
     "axios": "^0.20.0",
