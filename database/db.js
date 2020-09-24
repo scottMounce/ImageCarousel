@@ -3,6 +3,7 @@ const Promise = require('bluebird');
 const database = 'imageCarousel';
 const initialize = require('./initialize.js');
 
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
