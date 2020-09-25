@@ -17,6 +17,6 @@ db.connectAsync()
   .then(() => console.log(`Connected to the ${database} db`))
   .then(() => db.queryAsync(`CREATE DATABASE IF NOT EXISTS ${database}`))
   .then(() => db.queryAsync(`USE ${database}`))
-  .then(() => initialize(db));
+  .then(() => initialize(db))
 
 module.exports = db;
