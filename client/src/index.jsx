@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const App = () => {
 
-    }
+  // initialize
+  const [photos, setPhotos] = useState(['testing', 'number 2', 'hooks are cool']);
+  const [main, setMain] = useState('');
 
-  }
+  const carousel = photos.map((photo) =>
+    <div onClick={() => setMain(photo)}>{photo}</div>
+  );
 
-  render() {
-    return (
-      <div>
-        This is working!
-      </div>
-    );
-  }
+  return (
+    <div>
+      This is working! <br />
+      {carousel} <br />
+      <div>{main}</div>
+
+    </div>
+  );
+
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
