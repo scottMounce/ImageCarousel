@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
-    "init_db": "node ./database/db.js",
+    "init_db": "node ./database/initialize.js",
     "test": "jest --watch --detectOpenHandles"
   },
   "jest": {
