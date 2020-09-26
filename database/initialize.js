@@ -1,30 +1,35 @@
 const Promise = require('bluebird');
 const faker = require('faker');
+const db = require('./db.js');
 
+const database = 'imageCarousel';
 var seededProducts = [];
 var seededPhotos = []
 
-module.exports = (db) => {
-  if (db.queryAsync) {
-    db = Promise.promisifyAll(db);
-  }
-  // Create Products table (product names)
-  return db.queryAsync(`
+const initialize = (db) => {
+
+  db.connectAsync()
+    .then(() => console.log(`Connected to the ${database} db`))
+    .then(() => db.queryAsync(`CREATE DATABASE IF NOT EXISTS ${database}`))
+    .then(() => db.queryAsync(`USE ${database}`))
+
+    // Create Products table (product names)
+    .then(() => db.queryAsync(`
   CREATE TABLE IF NOT EXISTS Products (
     id int(10) AUTO_INCREMENT PRIMARY KEY,
     product varchar(30) NOT NULL
-    );`)
-    .then(() => {
+    );`))
+    .then(() =>
       // Create Photos table (photo URLs)
-      return db.queryAsync(`
+      db.queryAsync(`
       CREATE TABLE IF NOT EXISTS Photos (
         id int(10) AUTO_INCREMENT PRIMARY KEY,
         url varchar(100) NOT NULL,
         productId int(10),
 
         FOREIGN KEY(productId) REFERENCES Products(id)
-        );`);
-    })
+        );`)
+    )
 
     // Insert deliberate Products for testing -- these will have
     // specific images to show that the db tables connect properly
@@ -158,5 +163,7 @@ module.exports = (db) => {
       console.log(err);
     });
 };
+
+initialize(db);
 
 
