@@ -21,7 +21,7 @@ app.get('/products/:id', (req, res) => {
     // we don't want -- response[0] is an array of all photos that match the
     // request productId
     .then(response => res.json(response[0]));
-})
+});
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
