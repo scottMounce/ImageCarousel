@@ -1,8 +1,9 @@
 const jest = require('jest');
 const app = require('./index.js');
 const axios = require('axios');
-import toBeType from "jest-tobetype";
+const toBeType = require('jest-tobetype');
 expect.extend(toBeType);
+const request = require('supertest');
 
 describe('server', () => { // start of server tests
 

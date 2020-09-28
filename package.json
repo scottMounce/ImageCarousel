@@ -11,10 +11,8 @@
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "init_db": "node ./database/initialize.js",
-    "test": "jest --watch --detectOpenHandles"
-  },
-  "jest": {
-    "testEnvironment": "node"
+    "test_server": "jest --env=node --detectOpenHandles",
+    "test_client": "jest --env=jsdom"
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -28,12 +26,15 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "faker": "^5.1.0",
     "jest": "^26.4.2",
     "jest-tobetype": "^1.2.3",
     "nodemon": "^2.0.4",
+    "react-test-renderer": "^16.13.1",
+    "supertest": "^5.0.0",
     "webpack": "^2.7.0",
     "webpack-cli": "^3.3.12"
   }

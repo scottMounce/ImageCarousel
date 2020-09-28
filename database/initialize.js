@@ -105,7 +105,7 @@ const initialize = (db) => {
       var photos = [
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/pizza1.jpg', 3],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/pizza2.jpg', 3],
-        ['https://petsy-caro3usel-images.s3.us-east-2.amazonaws.com/Petsy+images/pizza3.jpg', 3],
+        ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/pizza3.jpg', 3],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/pizza4.jpg', 3],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/pizza5.jpg', 3],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/pizza6.jpg', 3]]
@@ -118,7 +118,7 @@ const initialize = (db) => {
       var photos = [
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/shark1.jpg', 4],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/shark2.jpg', 4],
-        ['https://petsy-caro3usel-images.s3.us-east-2.amazonaws.com/Petsy+images/shark3.jpg', 4],
+        ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/shark3.jpg', 4],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/shark4.jpg', 4],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/shark5.jpg', 4],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/shark6.jpg', 4]]
@@ -131,7 +131,7 @@ const initialize = (db) => {
       var photos = [
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/watermelon1.jpg', 5],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/watermelon2.jpg', 5],
-        ['https://petsy-caro3usel-images.s3.us-east-2.amazonaws.com/Petsy+images/watermelon3.jpg', 5],
+        ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/watermelon3.jpg', 5],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/watermelon4.jpg', 5],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/watermelon5.jpg', 5],
         ['https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/watermelon6.jpg', 5]]
@@ -144,8 +144,7 @@ const initialize = (db) => {
     .then(() => {
       for (var i = 6; i < 150; i++) {
         for (var j = 0; j < 5; j++) {
-          var randomPhoto = faker.image.cats();
-          seededPhotos.push([randomPhoto, i])
+          seededPhotos.push([faker.image.image(), i])
         }
       }
     })
