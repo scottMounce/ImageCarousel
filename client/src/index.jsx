@@ -24,7 +24,7 @@ const App = () => {
   }, [])
 
   return (
-    <div>
+    <div className='app'>
       <Stack photos={photos} chooseMain={setMain} /> <br />
       <Main main={main} />
     </div>
