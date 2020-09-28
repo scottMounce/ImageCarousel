@@ -1,0 +1,28 @@
+/* general rules for the whole service */
+.app {
+  font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, Roboto, 'Droid Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 19.6px;
+  text-decoration: none solid rgb(34, 34, 34);
+  text-align: left;
+  word-spacing: 0px;
+
+  background-color: white;
+  background: 0% 0%;
+
+  /* size is automatic to an extent--for now this is just a snapshot of a ratio
+   height: 635px;
+  width: 938px;
+  */
+
+  padding: 0 12px 0 30px;
+
+  position: relative;
+  display: flex;
+}
+
+.thumbnail {
+  /* this value will have to be adjusted; images have very little rounding on edges */
+  border-radius: 5px;
+}
+

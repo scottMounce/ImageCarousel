@@ -12,7 +12,7 @@ const App = () => {
   );
 
   return (
-    <div>
+    <div className='app'>
       This is working! <br />
       {carousel} <br />
       <div>{main}</div>
