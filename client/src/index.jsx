@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
+import Stack from './components/ThumbnailStack.jsx';
+import Main from './components/Main.jsx';
 
 const App = () => {
 
-  // initialize
-  const [photos, setPhotos] = useState(['testing', 'number 2', 'hooks are cool']);
-  const [main, setMain] = useState('');
+  // initialize state
+  const [photos, setPhotos] = useState([]);
+  const [main, setMain] = useState({});
 
-  const carousel = photos.map((photo) =>
-    <div onClick={() => setMain(photo)}>{photo}</div>
-  );
+  // utilize useEffect hook to send GET to server with given ID
+  // then update state to be the result of the response
+  // photos will be an array of all photo objects,
+  // main will by default be the first photo in that array
+  useEffect(() => {
+    axios.get('http://localhost:3001/products/1')
+      .then((response) => {
+        setPhotos(response.data);
+        setMain(response.data[0])
+      })
+  }, [])
 
   return (
     <div className='app'>
-      This is working! <br />
-      {carousel} <br />
-      <div>{main}</div>
-
+      <Stack photos={photos} chooseMain={setMain} /> <br />
+      <Main main={main} />
     </div>
   );
 
