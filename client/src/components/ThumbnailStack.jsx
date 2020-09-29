@@ -14,6 +14,7 @@ const Stack = ({ photos, chooseMain, mainID }) => {
       src={photo.url}
       onClick={() => { chooseMain(photo); }}
       key={index}
+      alt='product thumbnail'
     />
   );
 

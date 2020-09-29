@@ -15,6 +15,7 @@ const Main = ({ main }) => {
         className='mainImage'
         src={main.url}
         onClick={() => { console.log('main clicked') }}
+        alt='product image'
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
