@@ -45,7 +45,7 @@ const App = () => {
 
   return (
     <div className='carousel'>
-      <Stack photos={photos} chooseMain={setMain} />
+      <Stack photos={photos} chooseMain={setMain} mainID={main.id} />
       <Main main={main} />
     </div>
   );

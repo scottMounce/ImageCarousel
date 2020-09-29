@@ -19,22 +19,32 @@ body {
 }
 
 .stack {
-  /* this ensures the thumbnail stack will show as a column that */
+  /* this ensures the thumbnail stack will show as a column that always stays
+  to the left of the screen */
   flex: 0 1%;
 }
 
 .thumbnail {
-  /* this value will have to be adjusted; images have very little rounding on edges */
   border-radius: 5px;
 
   height: 60px;
+  width: 60px;
 
-  margin: 0 12px 0 30px;
+  margin: 1px 12px 1px 30px;
 
   opacity: 0.5;
 }
 
 .thumbnail:hover {
+  opacity: 1;
+}
+
+.active {
+  /* this highlights the thumbnail of the currently selected photo in the carousel */
+  border: 2px solid black;
+
+  /* the highlighted thumbnail is not opaque -- since this rule comes after
+  the previous opacity rules, it should overwrite them */
   opacity: 1;
 }
 
@@ -47,7 +57,7 @@ body {
 
 .mainImage {
   /* size is automatic to an extent--for now this is just a snapshot of a ratio */
-   height: 500px;
+   height: 635px;
    border-radius: 5px;
 
   /* flex: 0 90%; */
