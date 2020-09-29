@@ -9,15 +9,13 @@ const Stack = ({ photos, chooseMain }) => {
     <img
       className='thumbnail'
       src={photo.url}
-      width='50'
-      height='50'
       onClick={() => chooseMain(photo)}
       key={index}
     />
   );
 
   return (
-    <div>{carousel}</div>
+    <div className='stack'>{carousel}</div>
   )
 };
 

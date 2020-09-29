@@ -44,8 +44,8 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      <Stack photos={photos} chooseMain={setMain} /> <br />
+    <div className='carousel'>
+      <Stack photos={photos} chooseMain={setMain} />
       <Main main={main} />
     </div>
   );
