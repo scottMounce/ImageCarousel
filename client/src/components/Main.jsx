@@ -6,13 +6,21 @@ const Main = ({ main }) => {
   // render the main image
   // TODO: on click, open additional viewer with zoom functionality
   return (
-    <img
-      className='mainImage'
-      src={main.url}
-      width='300'
-      height='300'
-      onClick={() => { console.log('main clicked') }}
-    />
+    <div className='mainComp'>
+      <img
+        src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
+        className='left arrow'
+      />
+      <img
+        className='mainImage'
+        src={main.url}
+        onClick={() => { console.log('main clicked') }}
+      />
+      <img
+        src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
+        className='right arrow'
+      />
+    </div>
   )
 };
 
