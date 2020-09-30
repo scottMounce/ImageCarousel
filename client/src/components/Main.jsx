@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const Main = ({ main }) => {
+
+
+const Main = ({ main, toggleModal, show }) => {
 
   // render the main image
   // TODO: on click, open additional viewer with zoom functionality
@@ -14,7 +16,7 @@ const Main = ({ main }) => {
       <img
         className='mainImage'
         src={main.url}
-        onClick={() => { console.log('main clicked') }}
+        onClick={() => { toggleModal(!show) }}
         alt='product image'
       />
       <img
