@@ -47,10 +47,11 @@ const App = () => {
   }, [])
 
   return (
-    <div className='carousel'>
+    <div><div className='carousel'>
       <Stack photos={photos} chooseMain={setMain} mainID={main.id} />
       <Main main={main} toggleModal={toggleModal} show={show} />
-      <Modal show={show} photos={photos} />
+    </div>
+      <Modal show={show} photos={photos} main={main} toggleModal={toggleModal} />
     </div>
   );
 

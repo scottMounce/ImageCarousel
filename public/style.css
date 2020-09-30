@@ -74,3 +74,7 @@ body {
 .arrow:hover {
   background-color: #b4b4b480;
 }
+
+.modal {
+  border: 2px solid red;
+}
