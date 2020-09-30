@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Stack from './ThumbnailStack.jsx';
 import Main from './Main.jsx';
+import Modal from './Modal.jsx';
 
 const App = () => {
 
@@ -11,6 +12,8 @@ const App = () => {
   const [photos, setPhotos] = useState([]);
   const [main, setMain] = useState({});
   const [mainIndex, setIndex] = useState(0);
+
+  const [show, toggleModal] = useState(false);
 
   // utilize useEffect hook to send GET to server with given ID
   // then update state to be the result of the response
@@ -45,9 +48,14 @@ const App = () => {
   }, [])
 
   return (
-    <div className='carousel'>
-      <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
-      <Main main={main} index={mainIndex} setIndex={setIndex} setMain={setMain} photos={photos} />
+
+    <div>
+      <div className='carousel'>
+        <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
+        <Main main={main} index={mainIndex} setIndex={setIndex} setMain={setMain} photos={photos} toggleModal={toggleModal} />
+      </div>
+      <Modal show={show} photos={photos} main={main} toggleModal={toggleModal} />
+
     </div>
   );
 
