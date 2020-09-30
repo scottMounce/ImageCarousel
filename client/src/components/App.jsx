@@ -8,12 +8,27 @@ import Modal from './Modal.jsx';
 
 const App = () => {
 
-  // initialize state
+  /* initialize state
+  photos: array of photo objects retrieved from database -- used to render images
+
+  main: the 'main' image that is larger in the viewer
+
+  mainIndex: keeps track of which photo from photos is the main -- used so the
+    navigation buttons on the Main component can wrap when at the first or last photo
+
+  show: Boolean that determines whether the Modal component is rendered
+
+  shallowInd: index of the main when the Modal is opened -- passed into the Modal
+    so the Modal's main image matches the main when it is opened, but becomes
+    independent from it while the Modal is open
+
+
+
+  */
   const [photos, setPhotos] = useState([]);
   const [main, setMain] = useState({});
   const [mainIndex, setIndex] = useState(0);
   const [show, toggleModal] = useState(false);
-  // const [shallowMain, setShallow] = useState({})
   const [shallowInd, setShallowInd] = useState(0)
 
   // utilize useEffect hook to send GET to server with given ID
@@ -48,27 +63,33 @@ const App = () => {
       })
   }, [])
 
+  // this function is passed to the navigation buttons in Main and allows a
+  // user to cycle through the thumbnails in the ModalStack to update ModalMain
+  // it does this by setting the ModalMain to the previous/next index and wrapping
+  // when it is at the first or last index
   const navButtons = ((direction) => {
     if (direction === 'left') {
       if (mainIndex > 0) {
         setIndex(mainIndex - 1);
-        setMain(photos[mainIndex - 1])
+        setMain(photos[mainIndex - 1]);
       } else {
         setIndex(photos.length - 1);
-        setMain(photos[photos.length - 1])
+        setMain(photos[photos.length - 1]);
       }
     }
     if (direction === 'right') {
       if (mainIndex < photos.length - 1) {
         setIndex(mainIndex + 1);
-        setMain(photos[mainIndex + 1])
+        setMain(photos[mainIndex + 1]);
       } else {
         setIndex(0);
-        setMain(photos[0])
+        setMain(photos[0]);
       }
     }
   })
 
+  // renders the thumbnail Stack and Main image
+  // Modal viewer is only rendered when the 'show' state is true
   return (
     <div>
       <div className='carousel'>

@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 const ModalMain = ({ main, navButtons }) => {
 
-  // render the main image
-  // TODO: on click, open additional viewer with zoom functionality
+  // render the main image within the modal
+  // TODO: zoom feature on main image
   return (
     <div className='mainComp'>
       <img
