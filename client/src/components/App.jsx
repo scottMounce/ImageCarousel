@@ -10,6 +10,7 @@ const App = () => {
   // initialize state
   const [photos, setPhotos] = useState([]);
   const [main, setMain] = useState({});
+  const [mainIndex, setIndex] = useState(0);
 
   // utilize useEffect hook to send GET to server with given ID
   // then update state to be the result of the response
@@ -45,8 +46,8 @@ const App = () => {
 
   return (
     <div className='carousel'>
-      <Stack photos={photos} chooseMain={setMain} mainID={main.id} />
-      <Main main={main} />
+      <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
+      <Main main={main} index={mainIndex} setIndex={setIndex} setMain={setMain} photos={photos} />
     </div>
   );
 
