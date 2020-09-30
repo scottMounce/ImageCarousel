@@ -2,47 +2,30 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Main = ({ main, index, setIndex, setMain, photos, toggleModal, show }) => {
+const Main = ({ main, index, navButtons, toggleModal, show, setShallow }) => {
 
 
   // render the main image
-  // TODO: on click, open additional viewer with zoom functionality
   return (
     <div className='mainComp'>
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
         className='left arrow'
         onClick={
-          () => {
-            if (index > 0) {
-              setIndex(index - 1);
-              setMain(photos[index - 1])
-            } else {
-              setIndex(photos.length - 1);
-              setMain(photos[photos.length - 1])
-            }
-          }
+          () => { navButtons('left'); }
         }
       />
       <img
         className='mainImage'
         src={main.url}
-        onClick={() => { toggleModal(!show) }}
+        onClick={() => { setShallow(index); toggleModal(!show) }}
         alt='product image'
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
         className='right arrow'
         onClick={
-          () => {
-            if (index < photos.length - 1) {
-              setIndex(index + 1);
-              setMain(photos[index + 1])
-            } else {
-              setIndex(0);
-              setMain(photos[0])
-            }
-          }
+          () => { navButtons('right') }
         }
       />
     </div>

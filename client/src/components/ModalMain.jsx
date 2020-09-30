@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const ModalMain = ({ main }) => {
+const ModalMain = ({ main, navButtons }) => {
 
   // render the main image
   // TODO: on click, open additional viewer with zoom functionality
@@ -10,6 +10,7 @@ const ModalMain = ({ main }) => {
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
         className='left arrow'
+        onClick={() => { navButtons('left') }}
       />
       <img
         className='mainImage'
@@ -19,6 +20,7 @@ const ModalMain = ({ main }) => {
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
         className='right arrow'
+        onClick={() => { navButtons('right') }}
       />
     </div>
   )
