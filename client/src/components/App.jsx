@@ -12,8 +12,9 @@ const App = () => {
   const [photos, setPhotos] = useState([]);
   const [main, setMain] = useState({});
   const [mainIndex, setIndex] = useState(0);
-
   const [show, toggleModal] = useState(false);
+  // const [shallowMain, setShallow] = useState({})
+  const [shallowInd, setShallowInd] = useState(0)
 
   // utilize useEffect hook to send GET to server with given ID
   // then update state to be the result of the response
@@ -47,15 +48,34 @@ const App = () => {
       })
   }, [])
 
-  return (
+  const navButtons = ((direction) => {
+    if (direction === 'left') {
+      if (mainIndex > 0) {
+        setIndex(mainIndex - 1);
+        setMain(photos[mainIndex - 1])
+      } else {
+        setIndex(photos.length - 1);
+        setMain(photos[photos.length - 1])
+      }
+    }
+    if (direction === 'right') {
+      if (mainIndex < photos.length - 1) {
+        setIndex(mainIndex + 1);
+        setMain(photos[mainIndex + 1])
+      } else {
+        setIndex(0);
+        setMain(photos[0])
+      }
+    }
+  })
 
+  return (
     <div>
       <div className='carousel'>
         <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
-        <Main main={main} index={mainIndex} setIndex={setIndex} setMain={setMain} photos={photos} toggleModal={toggleModal} />
+        <Main main={main} index={mainIndex} navButtons={navButtons} toggleModal={toggleModal} setShallow={setShallowInd} />
       </div>
-      <Modal show={show} photos={photos} main={main} toggleModal={toggleModal} />
-
+      <Modal show={show} photos={photos} shallowInd={shallowInd} toggleModal={toggleModal} />
     </div>
   );
 

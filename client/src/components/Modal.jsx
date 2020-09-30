@@ -2,26 +2,48 @@ import React, { useState, useEffect } from 'react';
 import ModalStack from './ModalStack.jsx';
 import ModalMain from './ModalMain.jsx';
 
-const Modal = ({ show, photos, main, toggleModal }) => {
-  // TODO: set up a separate state for the main within the modal, since the main
-  // within the modal is determined by the original main when it is rendered, but
-  // becomes independent after that point
-  // currently this does not happen properly and the main image of the modal does
-  // not render
-  const copyMain = { ...main }
-  const [modalMain, setModalMain] = useState(copyMain);
+const Modal = ({ show, photos, shallowInd, toggleModal }) => {
+  // shallowMain passes in the main that existed when the modal was opened, and
+  // shallowMain is not affected by changes to main. This allows the ModalMain
+  // to match the main at the time it is opened, but be indpendent from then on
+  const [modalMain, setModalMain] = useState({});
+  const [modalIndex, setModalIndex] = useState(0);
+  // useEffect(() => {
+  //   setModalMain(photos[shallowInd])
+  // })
 
+
+  const navButtons = ((direction) => {
+    if (direction === 'left') {
+      if (modalIndex > 0) {
+        setModalIndex(modalIndex - 1);
+        setModalMain(photos[modalIndex - 1])
+      } else {
+        setModalIndex(photos.length - 1);
+        setModalMain(photos[photos.length - 1])
+      }
+    }
+    if (direction === 'right') {
+      if (modalIndex < photos.length - 1) {
+        setModalIndex(modalIndex + 1);
+        setModalMain(photos[modalIndex + 1])
+      } else {
+        setModalIndex(0);
+        setModalMain(photos[0])
+      }
+    }
+  })
 
   if (show) {
     return (
       <div className='modal'>
-        <ModalStack photos={photos} />
+        <ModalStack photos={photos} setMain={setModalMain} setIndex={setModalIndex} mainID={modalMain.id} />
         <button
           onClick={() => { toggleModal(!show) }}
           className='close-btn'>
           Close
            </button>
-        <ModalMain main={modalMain} />
+        <ModalMain main={modalMain} navButtons={navButtons} />
       </div>
     )
   }
