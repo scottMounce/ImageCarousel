@@ -15,23 +15,21 @@ describe('ThumbnailStack', () => { // start of Stack component tests
     { id: 4, product: 'Test', url: 'xxx' },
     { id: 5, product: 'Test', url: 'xxx' }
   ]
+  const wrapper = shallow(<Stack photos={mockPhotos} chooseMain={() => { }} mainID={1} />)
 
   test('sanity check for Stack', () => {
     expect(true).toBe(true);
   });
 
   test('renders the Stack', () => {
-    const wrapper = shallow(<Stack photos={mockPhotos} chooseMain={() => { }} mainID={1} />)
     expect(wrapper.exists);
   })
 
   test('The Stack renders a div with class "stack"', () => {
-    const wrapper = shallow(<Stack photos={mockPhotos} chooseMain={() => { }} mainID={1} />)
     expect(wrapper.hasClass('stack'));
   })
 
   test('The Stack should render the correct number of photos', () => {
-    const wrapper = shallow(<Stack photos={mockPhotos} chooseMain={() => { }} mainID={1} />)
     expect(wrapper.children().length === 5);
   })
 

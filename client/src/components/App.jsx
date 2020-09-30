@@ -11,6 +11,7 @@ const App = () => {
   // initialize state
   const [photos, setPhotos] = useState([]);
   const [main, setMain] = useState({});
+  const [mainIndex, setIndex] = useState(0);
 
   const [show, toggleModal] = useState(false);
 
@@ -47,11 +48,14 @@ const App = () => {
   }, [])
 
   return (
-    <div><div className='carousel'>
-      <Stack photos={photos} chooseMain={setMain} mainID={main.id} />
-      <Main main={main} toggleModal={toggleModal} show={show} />
-    </div>
+
+    <div>
+      <div className='carousel'>
+        <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
+        <Main main={main} index={mainIndex} setIndex={setIndex} setMain={setMain} photos={photos} toggleModal={toggleModal} />
+      </div>
       <Modal show={show} photos={photos} main={main} toggleModal={toggleModal} />
+
     </div>
   );
 

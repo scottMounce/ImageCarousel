@@ -13,22 +13,21 @@ describe('Main photo', () => { // start of Main component tests
     url: 'xxx'
   }
 
+  const wrapper = shallow(<Main main={mockMain} />)
+
   test('sanity check for Main', () => {
     expect(true).toBe(true);
   });
 
   test('renders the Main photo', () => {
-    const wrapper = shallow(<Main main={mockMain} />)
     expect(wrapper.exists);
   })
 
   test('The Main renders a div with class "mainComp"', () => {
-    const wrapper = shallow(<Main main={mockMain} />)
     expect(wrapper.hasClass('mainComp'));
   })
 
   test('The Main should render the main photo and two navigation buttons', () => {
-    const wrapper = shallow(<Main main={mockMain} />)
     expect(wrapper.children().length === 3);
   })
 
