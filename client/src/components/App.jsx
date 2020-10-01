@@ -21,9 +21,6 @@ const App = () => {
   shallowInd: index of the main when the Modal is opened -- passed into the Modal
     so the Modal's main image matches the main when it is opened, but becomes
     independent from it while the Modal is open
-
-
-
   */
   const [photos, setPhotos] = useState([]);
   const [main, setMain] = useState({});
@@ -92,7 +89,7 @@ const App = () => {
   // Modal viewer is only rendered when the 'show' state is true
   return (
     <div>
-      <div className='carousel'>
+      <div className={`carousel`}>
         <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
         <Main main={main} index={mainIndex} navButtons={navButtons} toggleModal={toggleModal} setShallow={setShallowInd} />
       </div>

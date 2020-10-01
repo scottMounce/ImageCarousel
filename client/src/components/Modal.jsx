@@ -50,16 +50,23 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
   // the close button also sets the ModalIndex to equal the current shallowInd so
   // that the index of a previous iteration of the modal does not alter the next
   // modal a user opens
+  // the 'shadeFilter' div exists to 'dim' the main App when the modal is opened
   if (show) {
     return (
       <div className='modal'>
+        <div className='shadeFilter'
+          onClick={() => { toggleModal(!show) }}>
+        </div>
+
+        <ModalMain main={modalMain} navButtons={navButtons} />
+
         <ModalStack photos={photos} setMain={setModalMain} setIndex={setModalIndex} mainID={modalMain.id} />
+
         <button
           onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
           className='close-btn'>
           Close
            </button>
-        <ModalMain main={modalMain} navButtons={navButtons} />
       </div>
     )
   }
