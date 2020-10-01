@@ -1,13 +1,11 @@
 import Jest from 'jest';
 import React from 'react';
-import Stack from '../components/ThumbnailStack.jsx';
+import ModalStack from '../components/ModalStack.jsx';
 
 import { shallow } from 'enzyme';
 
-describe('ThumbnailStack', () => { // start of Stack component tests
+describe('ModalStack', () => { // start of ModalStack component tests
 
-  // hardcoded example of what the 'photos' that might be passed in to Stack would look like
-  // normally photos is the result of an API call to /products/:id
   var mockPhotos = [
     { id: 1, product: 'Test', url: 'xxx' },
     { id: 2, product: 'Test', url: 'xxx' },
@@ -16,25 +14,27 @@ describe('ThumbnailStack', () => { // start of Stack component tests
     { id: 5, product: 'Test', url: 'xxx' }
   ]
   const wrapper = shallow(
-    <Stack photos={mockPhotos}
+    <ModalStack
+      photos={mockPhotos}
       setMain={() => { }}
+      setIndex={() => { }}
       mainID={1}
     />)
 
-  test('sanity check for Stack', () => {
+  test('sanity check for ModalStack', () => {
     expect(true).toBe(true);
   });
 
-  test('renders the Stack', () => {
+  test('renders the ModalStack', () => {
     expect(wrapper.exists);
   })
 
-  test('The Stack renders a div with class "stack"', () => {
+  test('The ModalStack renders a div with class "stack"', () => {
     expect(wrapper.hasClass('stack'));
   })
 
-  test('The Stack should render the correct number of photos', () => {
+  test('The ModalStack should render the correct number of photos', () => {
     expect(wrapper.children().length === 5);
   })
 
-}); // end of Stack tests
+}); // end of ModalStack tests
