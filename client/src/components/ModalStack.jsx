@@ -12,7 +12,7 @@ const ModalStack = ({ photos, setMain, setIndex, mainID }) => {
     <img
       className={`thumbnail modalThumbnail ${mainID === photo.id ? 'active' : ''}`}
       src={photo.url}
-      onClick={() => { console.log('modal stack clicked') }}
+      onClick={() => { setMain(photo); setIndex(index) }}
       key={index}
       alt='product thumbnail'
     />

@@ -6,13 +6,16 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow }) => {
 
 
   // render the main image
+  // open a modal viewer upon clicking the main image
   return (
     <div className='mainComp'>
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
         className='left arrow'
         onClick={
-          () => { navButtons('left'); }
+          () => {
+            navButtons('left');
+          }
         }
       />
       <img
@@ -25,7 +28,9 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow }) => {
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
         className='right arrow'
         onClick={
-          () => { navButtons('right') }
+          () => {
+            navButtons('right');
+          }
         }
       />
     </div>
