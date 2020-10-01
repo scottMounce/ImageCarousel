@@ -113,3 +113,10 @@ body {
   position: relative;
   border-radius: 5px;
 }
+
+div {
+  border-radius: 5px;
+}
+img {
+  border-radius: 5px;
+}

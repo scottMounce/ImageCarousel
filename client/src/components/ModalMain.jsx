@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
+import ModalMagnified from './ModalMagnified.jsx';
+
 const ModalMain = ({ main, navButtons }) => {
 
-  // render the main image within the modal
-  // TODO: zoom feature on main image
+  const [magnified, toggleMag] = useState(false);
+
   return (
     <div className='mainComp'>
       <img
@@ -12,17 +14,19 @@ const ModalMain = ({ main, navButtons }) => {
         className='left arrow'
         onClick={() => { navButtons('left') }}
       />
-      <img
-        className='mainImage'
-        src={main.url}
-        alt='product image'
+
+      <ModalMagnified
+        main={main}
+        toggleMag={toggleMag}
+        magnified={magnified}
       />
+
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
         className='right arrow'
         onClick={() => { navButtons('right') }}
       />
-    </div>
+    </div >
   )
 };
 
