@@ -21,7 +21,7 @@ const ModalMain = ({ main, navButtons }) => {
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
-        className='right arrow'
+        className='Mright arrow'
         onClick={() => { navButtons('right') }}
       />
     </div >
