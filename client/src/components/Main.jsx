@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Main = ({ main, index, navButtons, toggleModal, show, setShallow }) => {
+const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) => {
 
 
   // render the main image
@@ -19,7 +19,7 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow }) => {
         }
       />
       <img
-        className='mainImage'
+        className={`mainImage ${fade ? 'fade1' : ''}`}
         src={main.url}
         onClick={() => { setShallow(index); toggleModal(!show) }}
         alt='product image'

@@ -60,8 +60,25 @@ body {
    height: 635px;
    border-radius: 5px;
 
-  /* flex: 0 90%; */
+/* flex: 0 90%; */
 }
+
+.fade1 {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.8s;
+}
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 
 .arrow {
   background-color: white;
