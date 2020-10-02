@@ -64,7 +64,7 @@ const App = () => {
   const fadeHelper = () => {
     setFade(true);
     // setFade(true);
-    setTimeout(() => { setFade(false) }, 500)
+    setTimeout(() => { setFade(false) }, 800)
   }
 
   // this function is passed to the navigation buttons in Main and allows a
