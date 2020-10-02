@@ -53,20 +53,21 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
   // the 'shadeFilter' div exists to 'dim' the main App when the modal is opened
   if (show) {
     return (
-      <div className='modal'>
+      <div>
         <div className='shadeFilter'
           onClick={() => { toggleModal(!show) }}>
         </div>
-
-        <ModalMain main={modalMain} navButtons={navButtons} />
-
-        <ModalStack photos={photos} setMain={setModalMain} setIndex={setModalIndex} mainID={modalMain.id} />
-
-        <button
-          onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
-          className='close-btn'>
-          Close
+        <div className='modal'>
+          <button
+            onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
+            className='close-btn'>
+            Close
            </button>
+
+          <ModalMain main={modalMain} navButtons={navButtons} />
+
+          <ModalStack photos={photos} setMain={setModalMain} setIndex={setModalIndex} mainID={modalMain.id} />
+        </div>
       </div>
     )
   }
