@@ -52,11 +52,11 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-
 }
 
 .mainImage {
   /* size is automatic to an extent--for now this is just a snapshot of a ratio */
+  max-width: 80%;
    height: 635px;
    border-radius: 5px;
 
@@ -93,13 +93,6 @@ body {
   background-color: #b4b4b480;
 }
 
-.modal {
-  position: fixed;
-  /* placeholder values, eventually will fit to 'center' screen */
-  top: 10%;
-  left: 15%;
-}
-
 .shadeFilter {
   position: fixed;
   margin: 0;
@@ -115,25 +108,62 @@ body {
   opacity: 0.75;
 }
 
-.modalThumbnail {
-  position: relative;
-  opacity: 1;
+.modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.ModalMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 75%;
+}
+
+.magnifiedImage {
+  /* size is automatic to an extent--for now this is just a snapshot of a ratio */
+  max-width: 80%;
+  height: 900px;
   border-radius: 5px;
 
-  height: 100px;
-  width: 100px;
+  /* flex: 0 90%; */
+}
 
-  margin: 1px;
+.modalStack {
+  margin-right: 10%;
+  flex: 0 0 20%;
+  /* this is set just so that the pattern of 2 small, 1 big, 2 small...
+  will always fit on larger screens -- it will never fit more than 2
+  small or 1 large on the same row */
+  max-width: 225px;
+}
+
+.modalThumbnail {
+  opacity: 1;
+  border-radius: 5px;
+  height: 99px;
+  width: 99px;
+  margin: 5px;
+}
+
+.modalThumbnail:nth-child(3n) {
+  height: 200px;
+  width: 200px;
 }
 
 .close-btn {
-  position: relative;
+  position: fixed;
   border-radius: 5px;
-}
-
-div {
-  border-radius: 5px;
-}
-img {
-  border-radius: 5px;
+  top: 5%;
+  left: 90%;
 }
