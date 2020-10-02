@@ -58,15 +58,28 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
           onClick={() => { toggleModal(!show) }}>
         </div>
         <div className='modal'>
-          <button
+          <img
+            src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/cancel.svg'
+            className='close-btn'
+            onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
+          />
+          {/* <button
             onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
             className='close-btn'>
-            Close
-           </button>
+            X
+           </button> */}
 
-          <ModalMain main={modalMain} navButtons={navButtons} />
+          <ModalMain
+            main={modalMain}
+            navButtons={navButtons}
+          />
 
-          <ModalStack photos={photos} setMain={setModalMain} setIndex={setModalIndex} mainID={modalMain.id} />
+          <ModalStack
+            photos={photos}
+            setMain={setModalMain}
+            setIndex={setModalIndex}
+            mainID={modalMain.id}
+          />
         </div>
       </div>
     )

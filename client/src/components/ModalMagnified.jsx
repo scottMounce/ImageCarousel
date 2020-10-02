@@ -11,24 +11,24 @@ const ModalMagnified = ({ main, toggleMag, magnified }) => {
 
   if (magnified) {
     return (
-      // <div onClick={() => { toggleMag(!magnified) }}>
-      //   <SideBySideMagnifier
-      //     alwaysInPlace={true}
-      //     style={{ height: '80vh' }}
-      //     imageSrc={main.url}
-      //   />
-      // </div>
-      < img
-        className='magnifiedImage'
-        onClick={() => { toggleMag(!magnified) }}
-        src={main.url}
-        alt='product image'
-      />
+      <div onClick={() => { toggleMag(!magnified) }}>
+        <SideBySideMagnifier
+          className={'magnified'}
+          alwaysInPlace={true}
+          imageSrc={main.url}
+        />
+      </div>
+      // < img
+      //   className='magnifiedImage'
+      //   onClick={() => { toggleMag(!magnified) }}
+      //   src={main.url}
+      //   alt='product image'
+      // />
     )
   } else {
     return (
       < img
-        className='mainImage'
+        className='mainImage MMImg'
         onClick={() => { toggleMag(!magnified) }}
         src={main.url}
         alt='product image'

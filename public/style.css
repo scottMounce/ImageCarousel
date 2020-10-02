@@ -52,15 +52,16 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 0 0 60%;
 }
 
 .mainImage {
-  /* size is automatic to an extent--for now this is just a snapshot of a ratio */
-  max-width: 80%;
-   height: 635px;
-   border-radius: 5px;
-
-/* flex: 0 90%; */
+  max-width: 50vw;
+  max-height: 40vh;
+  border-radius: 5px;
+  height: auto;
+  width: auto;
 }
 
 .fade1 {
@@ -89,6 +90,21 @@ body {
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
+.left {
+  position: absolute;
+  left: 5%;
+}
+
+.right {
+  position: absolute;
+  right: 5%;
+}
+
+.Mright {
+  position: absolute;
+  right: 30%;
+}
+
 .arrow:hover {
   background-color: #b4b4b480;
 }
@@ -112,7 +128,6 @@ body {
     position: fixed;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     justify-content: space-around;
     margin: 0;
     padding: 0;
@@ -128,15 +143,6 @@ body {
   justify-content: center;
   align-items: center;
   flex: 0 0 75%;
-}
-
-.magnifiedImage {
-  /* size is automatic to an extent--for now this is just a snapshot of a ratio */
-  max-width: 80%;
-  height: 900px;
-  border-radius: 5px;
-
-  /* flex: 0 90%; */
 }
 
 .modalStack {
@@ -163,7 +169,20 @@ body {
 
 .close-btn {
   position: fixed;
+  top: 3%;
+  left: 92%;
+  background-color: white;
+  padding: 5px;
+  margin: 15px;
+  height: 40px;
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.close-btn:hover {
+  background-color: #b4b4b480;
+}
+
+img {
   border-radius: 5px;
-  top: 5%;
-  left: 90%;
 }

@@ -11,8 +11,7 @@
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "init_db": "node ./database/initialize.js",
-    "test": "jest --env=node --watch --detectOpenHandles",
-    "test_client": "jest --env=jsdom --watch"
+    "test": "jest --env=node --watch --detectOpenHandles --coverage"
   },
   "jest": {
     "setupFilesAfterEnv": [
