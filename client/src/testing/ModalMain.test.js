@@ -1,10 +1,10 @@
 import Jest from 'jest';
 import React from 'react';
-import Main from '../components/Main.jsx';
+import ModalMain from '../components/ModalMain.jsx';
 
 import { shallow } from 'enzyme';
 
-describe('Main photo', () => { // start of Main component tests
+describe('ModalMain photo', () => { // start of ModalMain component tests
 
 
   var mockMain = {
@@ -14,32 +14,28 @@ describe('Main photo', () => { // start of Main component tests
   }
 
   const wrapper = shallow(
-    <Main
+    <ModalMain
       main={mockMain}
-      index={0}
       navButtons={() => { }}
-      toggleModal={() => { }}
-      show={false}
-      setShallow={() => { }}
     />)
 
-  test('sanity check for Main', () => {
+  test('sanity check for ModalMain', () => {
     expect(true).toBe(true);
   });
 
-  test('renders the Main photo', () => {
+  test('renders the ModalMain photo', () => {
     expect(wrapper.exists);
   })
 
-  test('The Main renders a div with class "mainComp"', () => {
+  test('The ModalMain renders a div with class "mainComp"', () => {
     expect(wrapper.hasClass('mainComp'));
   })
 
-  test('The Main should render the main photo and two navigation buttons', () => {
+  test('The ModalMain should render the main photo and two navigation buttons', () => {
     expect(wrapper.children().length === 3);
   })
 
-  test('The Main should render a left nav button', () => {
+  test('The ModalMain should render a left nav button', () => {
     expect(wrapper.contains(
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
@@ -52,7 +48,7 @@ describe('Main photo', () => { // start of Main component tests
       />));
   })
 
-  test('The Main should render a right nav button', () => {
+  test('The ModalMain should render a right nav button', () => {
     expect(wrapper.contains(
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
@@ -65,7 +61,7 @@ describe('Main photo', () => { // start of Main component tests
       />));
   })
 
-  test('The Main should render a main image', () => {
+  test('The ModalMain should render a main image', () => {
     expect(wrapper.contains(
       <img
         className='mainImage'
@@ -75,4 +71,4 @@ describe('Main photo', () => { // start of Main component tests
       />));
   })
 
-}); // end of Main tests
+}); // end of ModalMain tests

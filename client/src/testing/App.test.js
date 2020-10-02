@@ -16,8 +16,12 @@ describe('App', () => { // start of App component tests
     expect(wrapper.exists);
   })
 
-  test('The App renders a div with class "carousel"', () => {
-    expect(wrapper.hasClass('carousel'));
+  test('The App renders a div with class "fullService"', () => {
+    expect(wrapper.hasClass('fullService'));
+  })
+
+  test('The App should render 2 children (div w/ service view, Modal', () => {
+    expect(wrapper.children().length === 2);
   })
 
 }); // end of App tests

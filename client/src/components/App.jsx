@@ -88,7 +88,7 @@ const App = () => {
   // renders the thumbnail Stack and Main image
   // Modal viewer is only rendered when the 'show' state is true
   return (
-    <div>
+    <div className='fullService'>
       <div className={`carousel`}>
         <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
         <Main main={main} index={mainIndex} navButtons={navButtons} toggleModal={toggleModal} setShallow={setShallowInd} />
