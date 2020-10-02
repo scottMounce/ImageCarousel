@@ -26,7 +26,8 @@ const App = () => {
   const [main, setMain] = useState({});
   const [mainIndex, setIndex] = useState(0);
   const [show, toggleModal] = useState(false);
-  const [shallowInd, setShallowInd] = useState(0)
+  const [shallowInd, setShallowInd] = useState(0);
+  const [fade, setFade] = useState(false);
 
   // utilize useEffect hook to send GET to server with given ID
   // then update state to be the result of the response
@@ -60,6 +61,12 @@ const App = () => {
       })
   }, [])
 
+  const fadeHelper = () => {
+    setFade(true);
+    // setFade(true);
+    setTimeout(() => { setFade(false) }, 500)
+  }
+
   // this function is passed to the navigation buttons in Main and allows a
   // user to cycle through the thumbnails in the ModalStack to update ModalMain
   // it does this by setting the ModalMain to the previous/next index and wrapping
@@ -83,6 +90,7 @@ const App = () => {
         setMain(photos[0]);
       }
     }
+    fadeHelper();
   })
 
   // renders the thumbnail Stack and Main image
@@ -90,10 +98,29 @@ const App = () => {
   return (
     <div className='fullService'>
       <div className={`carousel`}>
-        <Stack photos={photos} setMain={setMain} setIndex={setIndex} mainID={main.id} />
-        <Main main={main} index={mainIndex} navButtons={navButtons} toggleModal={toggleModal} setShallow={setShallowInd} />
+        <Stack
+          photos={photos}
+          setMain={setMain}
+          setIndex={setIndex}
+          mainID={main.id}
+          fadeHelper={fadeHelper}
+        />
+
+        <Main
+          main={main}
+          index={mainIndex}
+          navButtons={navButtons}
+          toggleModal={toggleModal}
+          setShallow={setShallowInd}
+          fade={fade}
+        />
       </div>
-      <Modal show={show} photos={photos} shallowInd={shallowInd} toggleModal={toggleModal} />
+      <Modal
+        show={show}
+        photos={photos}
+        shallowInd={shallowInd}
+        toggleModal={toggleModal}
+      />
     </div>
   );
 
