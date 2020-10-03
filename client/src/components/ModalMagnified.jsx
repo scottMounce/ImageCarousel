@@ -18,17 +18,11 @@ const ModalMagnified = ({ main, toggleMag, magnified }) => {
           imageSrc={main.url}
         />
       </div>
-      // < img
-      //   className='magnifiedImage'
-      //   onClick={() => { toggleMag(!magnified) }}
-      //   src={main.url}
-      //   alt='product image'
-      // />
     )
   } else {
     return (
       < img
-        className='mainImage MMImg'
+        className='mainImage MMainImage'
         onClick={() => { toggleMag(!magnified) }}
         src={main.url}
         alt='product image'

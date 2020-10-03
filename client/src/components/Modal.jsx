@@ -53,35 +53,32 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
   // the 'shadeFilter' div exists to 'dim' the main App when the modal is opened
   if (show) {
     return (
-      <div>
+      // <div>
+
+      <div className='modal'>
         <div className='shadeFilter'
           onClick={() => { toggleModal(!show) }}>
         </div>
-        <div className='modal'>
-          <img
-            src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/cancel.svg'
-            className='close-btn'
-            onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
-          />
-          {/* <button
-            onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
-            className='close-btn'>
-            X
-           </button> */}
+        <img
+          src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/cancel.svg'
+          className='close-btn'
+          alt='close modal'
+          onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
+        />
 
-          <ModalMain
-            main={modalMain}
-            navButtons={navButtons}
-          />
+        <ModalMain
+          main={modalMain}
+          navButtons={navButtons}
+        />
 
-          <ModalStack
-            photos={photos}
-            setMain={setModalMain}
-            setIndex={setModalIndex}
-            mainID={modalMain.id}
-          />
-        </div>
+        <ModalStack
+          photos={photos}
+          setMain={setModalMain}
+          setIndex={setModalIndex}
+          mainID={modalMain.id}
+        />
       </div>
+      // </div>
     )
   }
   return null;

@@ -11,15 +11,15 @@ const ModalStack = ({ photos, setMain, setIndex, mainID }) => {
   const carousel = photos.map((photo, index) =>
     <img
       className={`thumbnail modalThumbnail ${mainID === photo.id ? 'active' : ''}`}
+      alt={`thumbnail ${index + 1} of ${photo.product}`}
       src={photo.url}
       onClick={() => { setMain(photo); setIndex(index) }}
       key={index}
-      alt='product thumbnail'
     />
   );
 
   return (
-    <div className='stack modalStack'>{carousel}</div>
+    <div className='stack ModalStack'>{carousel}</div>
   )
 };
 

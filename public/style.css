@@ -1,4 +1,6 @@
-/* general rules for the whole service */
+/*
+  general rules for the whole service
+*/
 body {
   font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, Roboto, 'Droid Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -12,11 +14,18 @@ body {
 
 }
 
+/* allows the children of the carousel to use flex display , z-index is 0 to ensure shadeFilter can overlay */
 .carousel {
   position: relative;
   display: flex;
   align-items: center;
+  z-index: 0;
 }
+
+/*
+  rules that govern the thumbnail components, ThumbnailStack and ModalStack, as well as their grouping
+  as a whole
+*/
 
 .stack {
   /* this ensures the thumbnail stack will show as a column that always stays
@@ -26,12 +35,9 @@ body {
 
 .thumbnail {
   border-radius: 5px;
-
   height: 60px;
   width: 60px;
-
   margin: 1px 12px 1px 30px;
-
   opacity: 0.5;
 }
 
@@ -48,14 +54,24 @@ body {
   opacity: 1;
 }
 
+/*
+  rules governing the 'main' images in Main and ModalMain, as well as the navigation arrows beside them
+*/
+
+  /* the children of the mainComp (main image, nav arrows) use flex to be centered, and
+    the mainComp should never take up more than its allotted part of the screen */
 .mainComp {
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 60%;
 }
 
+  /* main image should never 'blob' out on screen and take up more than its fair share
+    this helps it remain a reasonable size and prevents differently-sized images from
+    shifting the whole component around */
 .mainImage {
   max-width: 50vw;
   max-height: 40vh;
@@ -64,6 +80,8 @@ body {
   width: auto;
 }
 
+  /* this is a class assigned and removed from a main image when it is changed
+    to give it a 'fading in' look */
 .fade1 {
   opacity: 1;
   animation-name: fadeInOpacity;
@@ -81,6 +99,9 @@ body {
   }
 
 
+  /* these classes govern the navigation arrows present in the Main and ModalMain components
+    their positions are absolute so they are unaffected by changes in the size of the main
+    image and they always 'frame' it properly */
 .arrow {
   background-color: white;
   padding: 5px;
@@ -100,30 +121,44 @@ body {
   right: 5%;
 }
 
-.Mright {
+/* note that modal<Dir> is different because the right arrows required different locations and the modal
+  arrows needed a z-index to properly sit above the modalMain image */
+  .modalLeft {
+    position: absolute;
+    left: 5%;
+    z-index: 5;
+  }
+
+.modalRight {
   position: absolute;
   right: 30%;
+  z-index: 5;
 }
 
 .arrow:hover {
   background-color: #b4b4b480;
 }
 
+/*
+  these rules affect the Modal component and its children
+*/
+
+/* the shadeFilter is a slightly opaque div that covers the entire screen to produce a 'dim'
+  base for the modal to sit on top of */
 .shadeFilter {
   position: fixed;
   margin: 0;
   padding: 0;
-
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
-
   background: #222222;
   opacity: 0.75;
+  z-index: 2;
 }
 
+/* the modal div fits the whole screen so that the modal carousel can easily center using flex */
 .modal {
     position: fixed;
     display: flex;
@@ -135,23 +170,36 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
-
+/* the ModalMain component can't take up more than 75% of the screen so that the ModalStack fits*/
 .ModalMain {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 0 0 75%;
+  z-index: 3;
 }
 
-.modalStack {
+/* these rules exist to ensure the image sits properly behind the navigation arrows in both its standard
+  and magnified forms */
+.MMainImage {
+  z-index: 4;
+}
+.magnified {
+  z-index: 4;
+}
+
+/* the modalStack fitsto the right of the ModalMain */
+.ModalStack {
   margin-right: 10%;
   flex: 0 0 20%;
   /* this is set just so that the pattern of 2 small, 1 big, 2 small...
   will always fit on larger screens -- it will never fit more than 2
   small or 1 large on the same row */
   max-width: 225px;
+  z-index: 3;
 }
 
 .modalThumbnail {
@@ -159,12 +207,12 @@ body {
   border-radius: 5px;
   height: 99px;
   width: 99px;
-  margin: 5px;
+  margin: 4px;
 }
 
 .modalThumbnail:nth-child(3n) {
-  height: 200px;
-  width: 200px;
+  height: 210px;
+  width: 210px;
 }
 
 .close-btn {
@@ -177,6 +225,7 @@ body {
   height: 40px;
   border-radius: 100px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  z-index: 3;
 }
 
 .close-btn:hover {
