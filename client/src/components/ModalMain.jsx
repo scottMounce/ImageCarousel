@@ -11,7 +11,8 @@ const ModalMain = ({ main, navButtons }) => {
     <div className='ModalMain'>
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
-        className='left arrow'
+        className='modalLeft arrow'
+        alt='left nav arrow'
         onClick={() => { navButtons('left') }}
       />
       <ModalMagnified
@@ -21,7 +22,11 @@ const ModalMain = ({ main, navButtons }) => {
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
-        className='Mright arrow'
+        /* the class Mright is to correct an unusual placement bug where the main and modal right
+         arrows were not both lining up right with the same position, so they now have different
+        classes */
+        className='modalRight arrow'
+        alt='right nav arrow'
         onClick={() => { navButtons('right') }}
       />
     </div >

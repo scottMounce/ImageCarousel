@@ -12,6 +12,7 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) 
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
         className='left arrow'
+        alt='left nav arrow'
         onClick={
           () => {
             navButtons('left');
@@ -22,11 +23,12 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) 
         className={`mainImage ${fade ? 'fade1' : ''}`}
         src={main.url}
         onClick={() => { setShallow(index); toggleModal(!show) }}
-        alt='product image'
+        alt={`main image ${index + 1}`}
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
         className='right arrow'
+        alt='right nav arrow'
         onClick={
           () => {
             navButtons('right');

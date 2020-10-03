@@ -11,6 +11,7 @@ const Stack = ({ photos, setMain, setIndex, mainID, fadeHelper }) => {
   const carousel = photos.map((photo, index) =>
     <img
       className={`thumbnail ${mainID === photo.id ? 'active' : ''}`}
+      alt={`thumbnail ${index + 1} of ${photo.product}`}
       src={photo.url}
       onClick={() => {
         setMain(photo);
@@ -18,7 +19,6 @@ const Stack = ({ photos, setMain, setIndex, mainID, fadeHelper }) => {
         fadeHelper();
       }}
       key={index}
-      alt='product thumbnail'
     />
   );
 

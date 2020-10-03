@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
+  "name": "petsy-image-carousel",
+  "version": "1.0.0",
+  "description": "The imageCarousel product viewer for Petsy, a clone of Etsy",
+  "author": "Stu Hanford",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
@@ -11,20 +11,15 @@
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "init_db": "node ./database/initialize.js",
-    "test": "jest --env=node --watch --detectOpenHandles --coverage"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/client/src/testing/test-setup.js",
-      "jest-enzyme"
-    ],
-    "testEnvironment": "enzyme"
+    "test": "jest --env=jsdom --watch --runInBand --detectOpenHandles"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
     "axios": "^0.20.0",
     "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "puppeteer": "^5.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-image-magnifiers": "^1.4.0"
@@ -33,14 +28,12 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@testing-library/react": "^11.0.4",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "faker": "^5.1.0",
     "jest": "^26.4.2",
-    "jest-enzyme": "^7.1.2",
     "jest-tobetype": "^1.2.3",
     "nodemon": "^2.0.4",
     "react-test-renderer": "^16.13.1",

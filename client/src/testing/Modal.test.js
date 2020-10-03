@@ -2,9 +2,13 @@ import Jest from 'jest';
 import React from 'react';
 import Modal from '../components/Modal.jsx';
 
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react'
 
-describe('Main photo', () => { // start of Modal component tests
+describe('Modal', () => { // start of Modal component tests
+
+  test('sanity check for Modal', () => {
+    expect(true).toBe(true);
+  });
 
   var mockPhotos = [
     { id: 1, product: 'Test', url: 'xxx' },
@@ -14,46 +18,62 @@ describe('Main photo', () => { // start of Modal component tests
     { id: 5, product: 'Test', url: 'xxx' }
   ]
 
-  const wrapper = shallow(
-    <Modal
-      show={true}
-      photos={mockPhotos}
-      toggleModal={() => { }}
-      shallowInd={0}
-    />)
+  var modal = <Modal
+    show={true}
+    photos={mockPhotos}
+    toggleModal={() => { }}
+    shallowInd={0}
+  />
+  var noModal = <Modal
+    show={false}
+    photos={mockPhotos}
+    toggleModal={() => { }}
+    shallowInd={0}
+  />
 
-  test('sanity check for Modal', () => {
-    expect(true).toBe(true);
+
+  test('does not render Modal if show is false', () => {
+    render(noModal);
+    // screen.debug();
   });
 
-  test('renders the Modal', () => {
-    expect(wrapper.exists);
-  })
+  test('renders Modal if show is true', () => {
+    render(modal);
+    // screen.debug();
+  });
 
-  test('The Modal renders a div with class "modal"', () => {
-    expect(wrapper.hasClass('modal'));
-  })
+  test('renders close modal button', () => {
+    render(modal);
+    screen.getByAltText('close modal');
+  });
 
-  test('The Modal should render 4 children (shadeFilter, ModalMain, ModalStack, close button)', () => {
-    expect(wrapper.children().length === 4);
-  })
+  describe('ModalStack block', () => { // start of ModalStack tests
+    test('renders first thumbnail based on photos it receives', () => {
+      render(modal);
+      screen.getByAltText('thumbnail 1 of Test');
+    });
 
-  test('The Modal should render a shadeFilter', () => {
-    expect(wrapper.contains(<div className='shadeFilter'
-      onClick={() => { toggleModal(!show) }}>
-    </div>));
-  })
+    test('renders last thumbnail based on photos it receives', () => {
+      render(modal);
+      screen.getByAltText('thumbnail 5 of Test');
+    });
+  }); // end of ModalStack tests
 
-  // ModalMain and ModalStack will get their own test files, and it can be assumed that
-  // since the proper number of children are being rendered, they are probably being
-  // rendered by Modal
+  describe('ModalMain block', () => { // start of ModalMain tests
+    test('renders left navigation arrow', () => {
+      render(modal);
+      screen.getByAltText('left nav arrow');
+    });
 
-  test('The Modal should render a close button', () => {
-    expect(wrapper.contains(<button
-      onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
-      className='close-btn'>
-      Close
-       </button>));
-  })
+    test('renders right navigation arrow', () => {
+      render(modal);
+      screen.getByAltText('right nav arrow');
+    });
+
+    test('renders main image', () => {
+      render(modal);
+      screen.getByAltText('product image');
+    });
+  }); // end of ModalMain tests
 
 }); // end of Modal tests
