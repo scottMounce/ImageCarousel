@@ -199,7 +199,7 @@ body {
   will always fit on larger screens -- it will never fit more than 2
   small or 1 large on the same row */
   max-width: 225px;
-  z-index: 3;
+  z-index: 2;
 }
 
 .modalThumbnail {
