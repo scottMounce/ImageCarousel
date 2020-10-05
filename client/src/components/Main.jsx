@@ -8,10 +8,10 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) 
   // render the main image
   // open a modal viewer upon clicking the main image
   return (
-    <div className='mainComp'>
+    <div className='car-mainComp'>
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
-        className='left arrow'
+        className='car-left car-arrow'
         alt='left nav arrow'
         onClick={
           () => {
@@ -20,14 +20,14 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) 
         }
       />
       <img
-        className={`mainImage ${fade ? 'fade1' : ''}`}
+        className={`car-mainImage ${fade ? 'car-fade1' : ''}`}
         src={main.url}
         onClick={() => { setShallow(index); toggleModal(!show) }}
         alt={`main image ${index + 1}`}
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
-        className='right arrow'
+        className='car-right car-arrow'
         alt='right nav arrow'
         onClick={
           () => {
