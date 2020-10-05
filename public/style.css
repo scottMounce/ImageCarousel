@@ -27,13 +27,13 @@ body {
   as a whole
 */
 
-.stack {
+.car-stack {
   /* this ensures the thumbnail stack will show as a column that always stays
   to the left of the screen */
   flex: 0 1%;
 }
 
-.thumbnail {
+.car-thumbnail {
   border-radius: 5px;
   height: 60px;
   width: 60px;
@@ -41,11 +41,11 @@ body {
   opacity: 0.5;
 }
 
-.thumbnail:hover {
+.car-thumbnail:hover {
   opacity: 1;
 }
 
-.active {
+.car-active {
   /* this highlights the thumbnail of the currently selected photo in the carousel */
   border: 2px solid black;
 
@@ -60,7 +60,7 @@ body {
 
   /* the children of the mainComp (main image, nav arrows) use flex to be centered, and
     the mainComp should never take up more than its allotted part of the screen */
-.mainComp {
+.car-mainComp {
   position: relative;
 
   display: flex;
@@ -72,7 +72,7 @@ body {
   /* main image should never 'blob' out on screen and take up more than its fair share
     this helps it remain a reasonable size and prevents differently-sized images from
     shifting the whole component around */
-.mainImage {
+.car-mainImage {
   max-width: 50vw;
   max-height: 40vh;
   border-radius: 5px;
@@ -82,7 +82,7 @@ body {
 
   /* this is a class assigned and removed from a main image when it is changed
     to give it a 'fading in' look */
-.fade1 {
+.car-fade1 {
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
@@ -102,7 +102,7 @@ body {
   /* these classes govern the navigation arrows present in the Main and ModalMain components
     their positions are absolute so they are unaffected by changes in the size of the main
     image and they always 'frame' it properly */
-.arrow {
+.car-arrow {
   background-color: white;
   padding: 5px;
   margin: 15px;
@@ -111,31 +111,31 @@ body {
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
-.left {
+.car-left {
   position: absolute;
   left: 5%;
 }
 
-.right {
+.car-right {
   position: absolute;
   right: 5%;
 }
 
 /* note that modal<Dir> is different because the right arrows required different locations and the modal
   arrows needed a z-index to properly sit above the modalMain image */
-  .modalLeft {
-    position: absolute;
-    left: 5%;
-    z-index: 5;
-  }
+.car-modalLeft {
+  position: absolute;
+  left: 5%;
+  z-index: 5;
+}
 
-.modalRight {
+.car-modalRight {
   position: absolute;
   right: 30%;
   z-index: 5;
 }
 
-.arrow:hover {
+.car-arrow:hover {
   background-color: #b4b4b480;
 }
 
@@ -145,7 +145,7 @@ body {
 
 /* the shadeFilter is a slightly opaque div that covers the entire screen to produce a 'dim'
   base for the modal to sit on top of */
-.shadeFilter {
+.car-shadeFilter {
   position: fixed;
   margin: 0;
   padding: 0;
@@ -159,7 +159,7 @@ body {
 }
 
 /* the modal div fits the whole screen so that the modal carousel can easily center using flex */
-.modal {
+.car-modal {
     position: fixed;
     display: flex;
     align-items: center;
@@ -174,7 +174,7 @@ body {
 }
 
 /* the ModalMain component can't take up more than 75% of the screen so that the ModalStack fits*/
-.ModalMain {
+.car-ModalMain {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,15 +184,15 @@ body {
 
 /* these rules exist to ensure the image sits properly behind the navigation arrows in both its standard
   and magnified forms */
-.MMainImage {
+.car-MMainImage {
   z-index: 4;
 }
-.magnified {
+.car-magnified {
   z-index: 4;
 }
 
 /* the modalStack fitsto the right of the ModalMain */
-.ModalStack {
+.car-ModalStack {
   margin-right: 10%;
   flex: 0 0 20%;
   /* this is set just so that the pattern of 2 small, 1 big, 2 small...
@@ -202,7 +202,7 @@ body {
   z-index: 2;
 }
 
-.modalThumbnail {
+.car-modalThumbnail {
   opacity: 1;
   border-radius: 5px;
   height: 99px;
@@ -210,12 +210,12 @@ body {
   margin: 4px;
 }
 
-.modalThumbnail:nth-child(3n) {
+.car-modalThumbnail:nth-child(3n) {
   height: 210px;
   width: 210px;
 }
 
-.close-btn {
+.car-close-btn {
   position: fixed;
   top: 3%;
   left: 92%;
@@ -228,7 +228,7 @@ body {
   z-index: 3;
 }
 
-.close-btn:hover {
+.car-close-btn:hover {
   background-color: #b4b4b480;
 }
 

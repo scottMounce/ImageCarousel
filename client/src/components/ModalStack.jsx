@@ -10,7 +10,7 @@ const ModalStack = ({ photos, setMain, setIndex, mainID }) => {
   // on click of any thumbnail, set state of 'main' to be that photo
   const carousel = photos.map((photo, index) =>
     <img
-      className={`thumbnail modalThumbnail ${mainID === photo.id ? 'active' : ''}`}
+      className={`car-thumbnail car-modalThumbnail ${mainID === photo.id ? 'car-active' : ''}`}
       alt={`thumbnail ${index + 1} of ${photo.product}`}
       src={photo.url}
       onClick={() => { setMain(photo); setIndex(index) }}
@@ -19,7 +19,7 @@ const ModalStack = ({ photos, setMain, setIndex, mainID }) => {
   );
 
   return (
-    <div className='stack ModalStack'>{carousel}</div>
+    <div className='car-stack car-ModalStack'>{carousel}</div>
   )
 };
 

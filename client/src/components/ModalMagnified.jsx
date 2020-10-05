@@ -13,7 +13,7 @@ const ModalMagnified = ({ main, toggleMag, magnified }) => {
     return (
       <div onClick={() => { toggleMag(!magnified) }}>
         <SideBySideMagnifier
-          className={'magnified'}
+          className={'car-magnified'}
           alwaysInPlace={true}
           imageSrc={main.url}
         />
@@ -22,7 +22,7 @@ const ModalMagnified = ({ main, toggleMag, magnified }) => {
   } else {
     return (
       < img
-        className='mainImage MMainImage'
+        className='car-mainImage car-MMainImage'
         onClick={() => { toggleMag(!magnified) }}
         src={main.url}
         alt='product image'

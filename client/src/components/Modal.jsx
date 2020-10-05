@@ -55,13 +55,13 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
     return (
       // <div>
 
-      <div className='modal'>
-        <div className='shadeFilter'
+      <div className='car-modal'>
+        <div className='car-shadeFilter'
           onClick={() => { toggleModal(!show) }}>
         </div>
         <img
           src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/cancel.svg'
-          className='close-btn'
+          className='car-close-btn'
           alt='close modal'
           onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
         />

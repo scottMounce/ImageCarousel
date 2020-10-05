@@ -10,7 +10,7 @@ const Stack = ({ photos, setMain, setIndex, mainID, fadeHelper }) => {
   // on click of any thumbnail, set state of 'main' to be that photo
   const carousel = photos.map((photo, index) =>
     <img
-      className={`thumbnail ${mainID === photo.id ? 'active' : ''}`}
+      className={`car-thumbnail ${mainID === photo.id ? 'car-active' : ''}`}
       alt={`thumbnail ${index + 1} of ${photo.product}`}
       src={photo.url}
       onClick={() => {
@@ -23,7 +23,7 @@ const Stack = ({ photos, setMain, setIndex, mainID, fadeHelper }) => {
   );
 
   return (
-    <div className='stack'>{carousel}</div>
+    <div className='car-stack'>{carousel}</div>
   )
 };
 

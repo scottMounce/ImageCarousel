@@ -8,10 +8,10 @@ const ModalMain = ({ main, navButtons }) => {
   const [magnified, toggleMag] = useState(false);
 
   return (
-    <div className='ModalMain'>
+    <div className='car-ModalMain'>
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
-        className='modalLeft arrow'
+        className='car-modalLeft car-arrow'
         alt='left nav arrow'
         onClick={() => { navButtons('left') }}
       />
@@ -25,7 +25,7 @@ const ModalMain = ({ main, navButtons }) => {
         /* the class Mright is to correct an unusual placement bug where the main and modal right
          arrows were not both lining up right with the same position, so they now have different
         classes */
-        className='modalRight arrow'
+        className='car-modalRight car-arrow'
         alt='right nav arrow'
         onClick={() => { navButtons('right') }}
       />
