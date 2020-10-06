@@ -1,24 +1,11 @@
-/*
-  general rules for the whole service
-*/
-body {
-  font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, Roboto, 'Droid Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 19.6px;
-  text-decoration: none solid rgb(34, 34, 34);
-  text-align: left;
-  word-spacing: 0px;
 
-  background-color: white;
-  background: 0% 0%;
-
-}
 
 /* allows the children of the carousel to use flex display , z-index is 0 to ensure shadeFilter can overlay */
 .carousel {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 0;
 }
 
@@ -66,18 +53,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 60%;
+  flex: 0 0 90%;
 }
 
   /* main image should never 'blob' out on screen and take up more than its fair share
     this helps it remain a reasonable size and prevents differently-sized images from
     shifting the whole component around */
 .car-mainImage {
-  /* max-width: 45vw; */
-  /* max-height: 40vh; */
+  max-width: 45vw;
+  max-height: 40vh;
   border-radius: 5px;
-  height: 90%;
-  width: 90%;
+  /* height: 80%;
+  width: 80%; */
 }
 
   /* this is a class assigned and removed from a main image when it is changed
