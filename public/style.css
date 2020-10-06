@@ -73,8 +73,8 @@ body {
     this helps it remain a reasonable size and prevents differently-sized images from
     shifting the whole component around */
 .car-mainImage {
-  max-width: 50vw;
-  max-height: 40vh;
+  max-width: 45vw;
+  /* max-height: 40vh; */
   border-radius: 5px;
   height: auto;
   width: auto;
