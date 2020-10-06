@@ -1,24 +1,11 @@
-/*
-  general rules for the whole service
-*/
-body {
-  font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, Roboto, 'Droid Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 19.6px;
-  text-decoration: none solid rgb(34, 34, 34);
-  text-align: left;
-  word-spacing: 0px;
 
-  background-color: white;
-  background: 0% 0%;
-
-}
 
 /* allows the children of the carousel to use flex display , z-index is 0 to ensure shadeFilter can overlay */
 .carousel {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 0;
 }
 
@@ -37,7 +24,7 @@ body {
   border-radius: 5px;
   height: 60px;
   width: 60px;
-  margin: 1px 12px 1px 30px;
+  margin: 1px 12px 1px 20px;
   opacity: 0.5;
 }
 
@@ -66,18 +53,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 60%;
+  flex: 0 0 90%;
 }
 
   /* main image should never 'blob' out on screen and take up more than its fair share
     this helps it remain a reasonable size and prevents differently-sized images from
     shifting the whole component around */
 .car-mainImage {
-  max-width: 50vw;
+  max-width: 45vw;
   max-height: 40vh;
   border-radius: 5px;
-  height: auto;
-  width: auto;
+  /* height: 80%;
+  width: 80%; */
 }
 
   /* this is a class assigned and removed from a main image when it is changed
@@ -100,38 +87,42 @@ body {
 
 
   /* these classes govern the navigation arrows present in the Main and ModalMain components
-    their positions are absolute so they are unaffected by changes in the size of the main
-    image and they always 'frame' it properly */
+    in the past, their positions were absolute so they were unaffected by changes in the size of the main
+    image and they'd always 'frame' it properly -- this made them not very responsive to window resizing
+    and they currently sit on either side of the image, but the absolute positioning is still present
+    as comments in case this needs to be reverted */
 .car-arrow {
   background-color: white;
   padding: 5px;
-  margin: 15px;
+  margin: 10px;
   height: 40px;
   border-radius: 100px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
 .car-left {
-  position: absolute;
-  left: 5%;
+  /* position: absolute; */
+  /* left: 5%; */
+  flex: 0 0 1%;
 }
 
 .car-right {
-  position: absolute;
-  right: 5%;
+  /* position: absolute; */
+  /* right: 5%; */
+  flex: 0 0 1%;
 }
 
-/* note that modal<Dir> is different because the right arrows required different locations and the modal
+/* note that modal<Dir> is different because the modal
   arrows needed a z-index to properly sit above the modalMain image */
 .car-modalLeft {
-  position: absolute;
-  left: 5%;
+  /* position: absolute; */
+  /* left: 5%; */
   z-index: 5;
 }
 
 .car-modalRight {
-  position: absolute;
-  right: 30%;
+  /* position: absolute; */
+  /* right: 30%; */
   z-index: 5;
 }
 
@@ -180,12 +171,15 @@ body {
   align-items: center;
   flex: 0 0 75%;
   z-index: 3;
+  margin-left: 10%;
 }
 
 /* these rules exist to ensure the image sits properly behind the navigation arrows in both its standard
   and magnified forms */
 .car-MMainImage {
   z-index: 4;
+  height: 60%;
+  width: 60%;
 }
 .car-magnified {
   z-index: 4;

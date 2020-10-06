@@ -22,8 +22,8 @@
 
 1. Run 'npm install' from the root. This installs the necessary dependencies for the service to run.
 1. Run 'npm run build' from the root. This will bundle the React components into a single file that is run as a script from the index.html file. This ensures that service can be run in older browsers.
-1. Run 'npm run init_db' from the root. This will create the database and tables this service relies on and seed the tables with some example data.
-1. Run 'npm start' from the root. This will start an Express server on port 3001, and the server will respond to a request to root by serving up a static file--the index.html that runs our bundle created in step 2.
+1. Ensure that a MySQL database server is running, then run 'npm run init_db' from the root. This will create the database and tables this service relies on and seed the tables with some example data.
+1. Run 'npm start' from the root. The MySQL server with the database seeded in the previous step must still be open. This will start an Express server on port 3001, and the server will respond to a request to root by serving up a static file--the index.html that runs our bundle created in step 2.
 1. Once the Express server is running, the service can be accessed at 'http://localhost:3001', which has a default product it will display images for.
 1. To display the image carousel for a different product, the URL parameter 'products={value}' can be used. Ex. 'http://localhost:3001/?products=2' will display the images for the product with ID 2 in the database. The root URL endpoint is identical to 'http://localhost:3001/?products=1', as default URL parameters are used if none are explicitly used.
 
