@@ -37,7 +37,7 @@ body {
   border-radius: 5px;
   height: 60px;
   width: 60px;
-  margin: 1px 12px 1px 30px;
+  margin: 1px 12px 1px 20px;
   opacity: 0.5;
 }
 
@@ -112,25 +112,27 @@ body {
 }
 
 .car-left {
-  position: absolute;
-  left: 5%;
+  /* position: absolute; */
+  /* left: 5%; */
+  flex: 0 0 1%;
 }
 
 .car-right {
-  position: absolute;
-  right: 5%;
+  /* position: absolute; */
+  /* right: 5%; */
+  flex: 0 0 1%;
 }
 
-/* note that modal<Dir> is different because the right arrows required different locations and the modal
+/* note that modal<Dir> is different because the modal
   arrows needed a z-index to properly sit above the modalMain image */
 .car-modalLeft {
-  position: absolute;
+  /* position: absolute; */
   left: 5%;
   z-index: 5;
 }
 
 .car-modalRight {
-  position: absolute;
+  /* position: absolute; */
   right: 30%;
   z-index: 5;
 }
@@ -180,6 +182,7 @@ body {
   align-items: center;
   flex: 0 0 75%;
   z-index: 3;
+  margin-left: 10%;
 }
 
 /* these rules exist to ensure the image sits properly behind the navigation arrows in both its standard
