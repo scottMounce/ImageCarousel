@@ -100,8 +100,10 @@ body {
 
 
   /* these classes govern the navigation arrows present in the Main and ModalMain components
-    their positions are absolute so they are unaffected by changes in the size of the main
-    image and they always 'frame' it properly */
+    in the past, their positions were absolute so they were unaffected by changes in the size of the main
+    image and they'd always 'frame' it properly -- this made them not very responsive to window resizing
+    and they currently sit on either side of the image, but the absolute positioning is still present
+    as comments in case this needs to be reverted */
 .car-arrow {
   background-color: white;
   padding: 5px;
@@ -127,13 +129,13 @@ body {
   arrows needed a z-index to properly sit above the modalMain image */
 .car-modalLeft {
   /* position: absolute; */
-  left: 5%;
+  /* left: 5%; */
   z-index: 5;
 }
 
 .car-modalRight {
   /* position: absolute; */
-  right: 30%;
+  /* right: 30%; */
   z-index: 5;
 }
 
