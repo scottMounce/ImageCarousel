@@ -73,11 +73,11 @@ body {
     this helps it remain a reasonable size and prevents differently-sized images from
     shifting the whole component around */
 .car-mainImage {
-  max-width: 45vw;
+  /* max-width: 45vw; */
   /* max-height: 40vh; */
   border-radius: 5px;
-  height: auto;
-  width: auto;
+  height: 90%;
+  width: 90%;
 }
 
   /* this is a class assigned and removed from a main image when it is changed
@@ -107,7 +107,7 @@ body {
 .car-arrow {
   background-color: white;
   padding: 5px;
-  margin: 15px;
+  margin: 10px;
   height: 40px;
   border-radius: 100px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
@@ -191,6 +191,8 @@ body {
   and magnified forms */
 .car-MMainImage {
   z-index: 4;
+  height: 60%;
+  width: 60%;
 }
 .car-magnified {
   z-index: 4;
