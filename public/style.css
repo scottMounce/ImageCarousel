@@ -53,18 +53,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 90%;
+  flex: 0 0 75%;
 }
 
   /* main image should never 'blob' out on screen and take up more than its fair share
     this helps it remain a reasonable size and prevents differently-sized images from
     shifting the whole component around */
 .car-mainImage {
-  max-width: 45vw;
-  max-height: 40vh;
+  max-width: 540px;
+  max-height: 590px;
   border-radius: 5px;
-  /* height: 80%;
-  width: 80%; */
+  height: 75%;
+  width: 75%;
 }
 
   /* this is a class assigned and removed from a main image when it is changed

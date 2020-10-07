@@ -35,24 +35,34 @@ const App = () => {
   // main will by default be the first photo in that array
   useEffect(() => {
 
+    // simpler way of grabbing id from url...specifically with making the URL
+    // easier to work with on a proxy server. This will simply grab the values
+    // after the last '/' in the URL, like http://localhost:300x/1, where it will
+    // send the request to the API with the '1'
+    var url = window.location.pathname;
+    var prodID = url.substring(url.lastIndexOf('/' + 1));
+
+    /*  this is an earlier implementation that worked better when this service
+    ran by itself and not on a proxy server
+
     // function that takes the API endpoint in the url and returns it as a string
     // that can be passed into axios request
-    var getQueryVariable = (variable) => {
-      var query = window.location.search.substring(1);
-      var vars = query.split("&");
-      for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split("=");
-        if (pair[0] == variable) { return pair[1]; }
-      }
-      return false;
-    }
-
+    // var getQueryVariable = (variable) => {
+    //   var query = window.location.search.substring(1);
+    //   var vars = query.split("&");
+    //   for (var i = 0; i < vars.length; i++) {
+    //     var pair = vars[i].split("=");
+    //     if (pair[0] == variable) { return pair[1]; }
+    //   }
+    //   return false;
+    // }
     // get the url parameter for 'products' and if we are at root,
     // set it to 1 by default (first product in db should be default)
-    var prodID = getQueryVariable('products');
-    if (prodID === false) {
-      prodID = 1;
-    }
+    // var prodID = getQueryVariable('products');
+    // if (prodID === false) {
+    //   prodID = 1;
+    // }
+    */
 
     axios.get(`http://localhost:3001/products/${prodID}`)
       .then((response) => {
