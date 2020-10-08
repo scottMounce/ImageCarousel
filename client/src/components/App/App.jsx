@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-
-import Stack from './ThumbnailStack.jsx';
-import Main from './Main.jsx';
-import Modal from './Modal.jsx';
+import styles from './app.css';
+import Stack from '../ThumbNailStack/ThumbnailStack.jsx';
+import Main from '../Main/Main.jsx';
+import Modal from '../Modal/Modal.jsx';
 
 const App = () => {
 
@@ -21,6 +21,9 @@ const App = () => {
   shallowInd: index of the main when the Modal is opened -- passed into the Modal
     so the Modal's main image matches the main when it is opened, but becomes
     independent from it while the Modal is open
+
+  fade: this is a boolean that tells the main image whether or not it should have class that gives it
+    a transition animation that lets it 'fade in'
   */
   const [photos, setPhotos] = useState([]);
   const [main, setMain] = useState({});
@@ -35,47 +38,28 @@ const App = () => {
   // main will by default be the first photo in that array
   useEffect(() => {
 
-    // simpler way of grabbing id from url...specifically with making the URL
+    // simpler way of grabbing id from url...specifically makes the URL
     // easier to work with on a proxy server. This will simply grab the values
     // after the last '/' in the URL, like http://localhost:300x/1, where it will
     // send the request to the API with the '1'
     var url = window.location.pathname;
-    var prodID = url.substring(url.lastIndexOf('/' + 1));
-
-    /*  this is an earlier implementation that worked better when this service
-    ran by itself and not on a proxy server
-
-    // function that takes the API endpoint in the url and returns it as a string
-    // that can be passed into axios request
-    // var getQueryVariable = (variable) => {
-    //   var query = window.location.search.substring(1);
-    //   var vars = query.split("&");
-    //   for (var i = 0; i < vars.length; i++) {
-    //     var pair = vars[i].split("=");
-    //     if (pair[0] == variable) { return pair[1]; }
-    //   }
-    //   return false;
-    // }
-    // get the url parameter for 'products' and if we are at root,
-    // set it to 1 by default (first product in db should be default)
-    // var prodID = getQueryVariable('products');
-    // if (prodID === false) {
-    //   prodID = 1;
-    // }
-    */
+    var prodID = url.substring(url.lastIndexOf('/') + 1);
+    if (!prodID) {
+      prodID = 1;
+    }
 
     axios.get(`http://localhost:3001/products/${prodID}`)
       .then((response) => {
         setPhotos(response.data);
-        setMain(response.data[0])
-      })
-  }, [])
+        setMain(response.data[0]);
+      });
+  }, []);
 
   const fadeHelper = () => {
     setFade(true);
     // setFade(true);
-    setTimeout(() => { setFade(false) }, 800)
-  }
+    setTimeout(() => { setFade(false); }, 800);
+  };
 
   // this function is passed to the navigation buttons in Main and allows a
   // user to cycle through the thumbnails in the ModalStack to update ModalMain
@@ -101,13 +85,13 @@ const App = () => {
       }
     }
     fadeHelper();
-  })
+  });
 
   // renders the thumbnail Stack and Main image
   // Modal viewer is only rendered when the 'show' state is true
   return (
-    <div className='car-fullService'>
-      <div className={`carousel`}>
+    <div className={styles.carFullService}>
+      <div className={styles.carousel}>
         <Stack
           photos={photos}
           setMain={setMain}
@@ -134,6 +118,6 @@ const App = () => {
     </div>
   );
 
-}
+};
 
 export default App;

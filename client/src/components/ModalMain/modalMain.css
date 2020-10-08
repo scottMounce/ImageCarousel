@@ -1,0 +1,31 @@
+.carArrow {
+  background-color: white;
+  padding: 5px;
+  margin: 10px;
+  height: 40px;
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.carModalLeft {
+  /* position: absolute; */
+  /* left: 5%; */
+  z-index: 5;
+}
+
+.carModalRight {
+  /* position: absolute; */
+  /* right: 30%; */
+  z-index: 5;
+}
+
+.carArrow:hover {
+  background-color: #b4b4b480;
+}
+.carModalMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 75%;
+  z-index: 3;
+  margin-left: 10%;
+}

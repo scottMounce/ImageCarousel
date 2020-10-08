@@ -1,0 +1,24 @@
+.carStack {
+  /* this ensures the thumbnail stack will show as a column that always stays
+  to the left of the screen */
+  flex: 0 1%;
+}
+.carThumbnail {
+  border-radius: 5px;
+  height: 60px;
+  width: 60px;
+  margin: 1px 12px 1px 20px;
+  opacity: 0.5;
+}
+
+.carThumbnail:hover {
+  opacity: 1;
+}
+.carActive {
+  /* this highlights the thumbnail of the currently selected photo in the carousel */
+  border: 2px solid black;
+
+  /* the highlighted thumbnail is not opaque -- since this rule comes after
+  the previous opacity rules, it should overwrite them */
+  opacity: 1;
+}

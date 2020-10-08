@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import styles from './stack.css';
 
 const Stack = ({ photos, setMain, setIndex, mainID, fadeHelper }) => {
   // the mainID prop is used to highlight the thumbnail matching the main
@@ -10,7 +11,7 @@ const Stack = ({ photos, setMain, setIndex, mainID, fadeHelper }) => {
   // on click of any thumbnail, set state of 'main' to be that photo
   const carousel = photos.map((photo, index) =>
     <img
-      className={`car-thumbnail ${mainID === photo.id ? 'car-active' : ''}`}
+      className={`${styles.carThumbnail} ${mainID === photo.id ? styles.carActive : ''}`}
       alt={`thumbnail ${index + 1} of ${photo.product}`}
       src={photo.url}
       onClick={() => {
@@ -23,8 +24,8 @@ const Stack = ({ photos, setMain, setIndex, mainID, fadeHelper }) => {
   );
 
   return (
-    <div className='car-stack'>{carousel}</div>
-  )
+    <div className={styles.carStack}>{carousel}</div>
+  );
 };
 
 export default Stack;
