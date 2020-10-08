@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import styles from './modalMagnified.css';
 
 import {
   SideBySideMagnifier,
   MOUSE_ACTIVATION,
   TOUCH_ACTIVATION
-} from "react-image-magnifiers";
+} from 'react-image-magnifiers';
 
 const ModalMagnified = ({ main, toggleMag, magnified }) => {
 
   if (magnified) {
     return (
-      <div onClick={() => { toggleMag(!magnified) }}>
+      <div onClick={() => { toggleMag(!magnified); }}>
         <SideBySideMagnifier
-          className={'car-magnified'}
+          className={styles.carMagnified}
           alwaysInPlace={true}
           imageSrc={main.url}
         />
       </div>
-    )
+    );
   } else {
     return (
       < img
-        className='car-mainImage car-MMainImage'
-        onClick={() => { toggleMag(!magnified) }}
+        className={`${styles.carMainImage} ${styles.carMMainImage}`}
+        onClick={() => { toggleMag(!magnified); }}
         src={main.url}
         alt='product image'
       />
-    )
+    );
   }
 };
 

@@ -1,0 +1,21 @@
+  /* main image should never 'blob' out on screen and take up more than its fair share
+    this helps it remain a reasonable size and prevents differently-sized images from
+    shifting the whole component around */
+    .carMainImage {
+      max-width: 540px;
+      max-height: 590px;
+      border-radius: 5px;
+      height: 75%;
+      width: 75%;
+    }
+
+    /* these rules exist to ensure the image sits properly behind the navigation arrows in both its standard
+      and magnified forms */
+    .carMMainImage {
+      z-index: 4;
+      height: 60%;
+      width: 60%;
+    }
+    .carMagnified {
+      z-index: 4;
+    }

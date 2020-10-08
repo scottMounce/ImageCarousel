@@ -1,8 +1,8 @@
 import Jest from 'jest';
 import React from 'react';
 
-import Stack from '../components/ThumbnailStack.jsx';
-import Main from '../components/Main.jsx';
+import Stack from '../components/ThumbnailStack/ThumbnailStack.jsx';
+import Main from '../components//Main/Main.jsx';
 
 import { render, screen, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
@@ -22,25 +22,25 @@ describe('App', () => { // start of general tests
     { id: 3, product: 'Test', url: 'xxx' },
     { id: 4, product: 'Test', url: 'xxx' },
     { id: 5, product: 'Test', url: 'xxx' }
-  ]
+  ];
 
   var mockMain = {
     id: 1,
     product: 'Test',
     url: 'xxx'
-  }
+  };
 
   describe('ThumbnailStack tests', () => { // start of Stack tests
     var stack = <Stack
       photos={mockPhotos}
       setMain={() => { }}
       mainID={1}
-    />
+    />;
 
     test('render Stack', () => {
       render(stack);
       // screen.debug();
-    })
+    });
 
     test('renders first thumbnail based on photos it receives', () => {
       render(stack);
@@ -62,12 +62,12 @@ describe('App', () => { // start of general tests
       toggleModal={() => { }}
       show={false}
       setShallow={() => { }}
-    />
+    />;
 
     test('render Main', () => {
       render(main);
       // screen.debug();
-    })
+    });
 
     test('renders left nav arrow', () => {
       render(main);
@@ -82,7 +82,7 @@ describe('App', () => { // start of general tests
     test('renders the main image', () => {
       render(main);
       screen.getByAltText('main image 1');
-    })
+    });
 
   }); // end of Stack tests
 

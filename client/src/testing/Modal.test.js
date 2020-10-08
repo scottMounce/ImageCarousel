@@ -1,8 +1,8 @@
 import Jest from 'jest';
 import React from 'react';
-import Modal from '../components/Modal.jsx';
+import Modal from '../components/Modal/Modal.jsx';
 
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react';
 
 describe('Modal', () => { // start of Modal component tests
 
@@ -16,20 +16,20 @@ describe('Modal', () => { // start of Modal component tests
     { id: 3, product: 'Test', url: 'xxx' },
     { id: 4, product: 'Test', url: 'xxx' },
     { id: 5, product: 'Test', url: 'xxx' }
-  ]
+  ];
 
   var modal = <Modal
     show={true}
     photos={mockPhotos}
     toggleModal={() => { }}
     shallowInd={0}
-  />
+  />;
   var noModal = <Modal
     show={false}
     photos={mockPhotos}
     toggleModal={() => { }}
     shallowInd={0}
-  />
+  />;
 
 
   test('does not render Modal if show is false', () => {

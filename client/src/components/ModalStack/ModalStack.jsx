@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import styles from './modalStack.css';
 
 const ModalStack = ({ photos, setMain, setIndex, mainID }) => {
   // the mainID prop is used to highlight the thumbnail matching the main
@@ -10,17 +11,17 @@ const ModalStack = ({ photos, setMain, setIndex, mainID }) => {
   // on click of any thumbnail, set state of 'main' to be that photo
   const carousel = photos.map((photo, index) =>
     <img
-      className={`car-thumbnail car-modalThumbnail ${mainID === photo.id ? 'car-active' : ''}`}
+      className={`${styles.carThumbnail} ${styles.carModalThumbnail} ${mainID === photo.id ? styles.carActive : ''}`}
       alt={`thumbnail ${index + 1} of ${photo.product}`}
       src={photo.url}
-      onClick={() => { setMain(photo); setIndex(index) }}
+      onClick={() => { setMain(photo); setIndex(index); }}
       key={index}
     />
   );
 
   return (
-    <div className='car-stack car-ModalStack'>{carousel}</div>
-  )
+    <div className={`${styles.carStack} ${styles.carModalStack}`}>{carousel}</div>
+  );
 };
 
 export default ModalStack;

@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import styles from './modalMain.css';
 
-import ModalMagnified from './ModalMagnified.jsx';
+import ModalMagnified from '../ModalMagnified/ModalMagnified.jsx';
 
 const ModalMain = ({ main, navButtons }) => {
 
   const [magnified, toggleMag] = useState(false);
 
   return (
-    <div className='car-ModalMain'>
+    <div className={styles.carModalMain}>
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
-        className='car-modalLeft car-arrow'
+        className={`${styles.carModalLeft} ${styles.carArrow}`}
         alt='left nav arrow'
-        onClick={() => { navButtons('left') }}
+        onClick={() => { navButtons('left'); }}
       />
       <ModalMagnified
         main={main}
@@ -22,15 +23,12 @@ const ModalMain = ({ main, navButtons }) => {
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
-        /* the class Mright is to correct an unusual placement bug where the main and modal right
-         arrows were not both lining up right with the same position, so they now have different
-        classes */
-        className='car-modalRight car-arrow'
+        className={`${styles.carModalRight} ${styles.carArrow}`}
         alt='right nav arrow'
-        onClick={() => { navButtons('right') }}
+        onClick={() => { navButtons('right'); }}
       />
     </div >
-  )
+  );
 };
 
 export default ModalMain;

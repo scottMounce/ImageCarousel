@@ -1,0 +1,59 @@
+  /* the children of the mainComp (main image, nav arrows) use flex to be centered, and
+    the mainComp should never take up more than its allotted part of the screen */
+    .carMainComp {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 75%;
+    }
+
+      /* main image should never 'blob' out on screen and take up more than its fair share
+        this helps it remain a reasonable size and prevents differently-sized images from
+        shifting the whole component around */
+    .carMainImage {
+      max-width: 540px;
+      max-height: 590px;
+      border-radius: 5px;
+      height: 75%;
+      width: 75%;
+    }
+    .carArrow {
+      background-color: white;
+      padding: 5px;
+      margin: 10px;
+      height: 40px;
+      border-radius: 100px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    }
+
+    .carLeft {
+      /* position: absolute; */
+      /* left: 5%; */
+      flex: 0 0 1%;
+    }
+
+    .carRight {
+      /* position: absolute; */
+      /* right: 5%; */
+      flex: 0 0 1%;
+    }
+
+      /* this is a class assigned and removed from a main image when it is changed
+    to give it a 'fading in' look */
+.carFade {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.8s;
+}
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

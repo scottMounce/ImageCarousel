@@ -1,0 +1,43 @@
+.carStack {
+  /* this ensures the thumbnail stack will show as a column that always stays
+  to the left of the screen */
+  flex: 0 1%;
+}
+
+.carThumbnail {
+  border-radius: 5px;
+  height: 60px;
+  width: 60px;
+  margin: 1px 12px 1px 20px;
+  opacity: 0.5;
+}
+.carActive {
+  /* this highlights the thumbnail of the currently selected photo in the carousel */
+  border: 2px solid black;
+
+  /* the highlighted thumbnail is not opaque -- since this rule comes after
+  the previous opacity rules, it should overwrite them */
+  opacity: 1;
+}
+.carModalStack {
+  margin-right: 10%;
+  flex: 0 0 20%;
+  /* this is set just so that the pattern of 2 small, 1 big, 2 small...
+  will always fit on larger screens -- it will never fit more than 2
+  small or 1 large on the same row */
+  max-width: 225px;
+  z-index: 2;
+}
+
+.carModalThumbnail {
+  opacity: 1;
+  border-radius: 5px;
+  height: 99px;
+  width: 99px;
+  margin: 4px;
+}
+
+.carModalThumbnail:nth-child(3n) {
+  height: 210px;
+  width: 210px;
+}

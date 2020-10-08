@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import styles from './main.css';
 
 
 const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) => {
@@ -8,10 +9,10 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) 
   // render the main image
   // open a modal viewer upon clicking the main image
   return (
-    <div className='car-mainComp'>
+    <div className={styles.carMainComp}>
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron+(1).svg'
-        className='car-left car-arrow'
+        className={`${styles.carLeft} ${styles.carArrow}`}
         alt='left nav arrow'
         onClick={
           () => {
@@ -20,14 +21,14 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) 
         }
       />
       <img
-        className={`car-mainImage ${fade ? 'car-fade1' : ''}`}
+        className={`${styles.carMainImage} ${fade ? styles.carFade : ''}`}
         src={main.url}
-        onClick={() => { setShallow(index); toggleModal(!show) }}
+        onClick={() => { setShallow(index); toggleModal(!show); }}
         alt={`main image ${index + 1}`}
       />
       <img
         src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/chevron.svg'
-        className='car-right car-arrow'
+        className={`${styles.carRight} ${styles.carArrow}`}
         alt='right nav arrow'
         onClick={
           () => {
@@ -36,7 +37,7 @@ const Main = ({ main, index, navButtons, toggleModal, show, setShallow, fade }) 
         }
       />
     </div>
-  )
+  );
 };
 
 export default Main;

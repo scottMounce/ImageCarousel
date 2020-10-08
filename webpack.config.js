@@ -9,7 +9,7 @@ module.exports = {
     path: DIST_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: SRC_DIR,
@@ -18,7 +18,11 @@ module.exports = {
         query: {
           presets: ['@babel/react', '@babel/preset-env']
         }
-      }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=1'
+      },
     ]
   }
 };

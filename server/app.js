@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../database/db.js');
+const component = require('./template.js');
 const cors = require('cors');
 
 const app = express();
@@ -13,6 +14,10 @@ let connectedToDB = false;
 
 // serve static html file on root request
 app.use(express.static(__dirname + '/../public'));
+
+app.get('/:id', (req, res) => {
+  res.send(component);
+});
 
 // respond to a request with an id param with array of
 // all photos matching that product id
@@ -33,7 +38,7 @@ app.get('/products/:id', (req, res) => {
   // database and sets connectedToDB to true so we can simply query from that point on
   if (!connectedToDB) {
     db.connectAsync()
-      .then(() => db.queryAsync(`USE imageCarousel`))
+      .then(() => db.queryAsync('USE imageCarousel'))
       .then(() => db.queryAsync(photoReq))
       // use response[0] because MySQL also sends back additional information
       // we don't want -- response[0] is an array of all photos that match the

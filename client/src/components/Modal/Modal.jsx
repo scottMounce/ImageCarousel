@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ModalStack from './ModalStack.jsx';
-import ModalMain from './ModalMain.jsx';
+import ModalStack from '../ModalStack/ModalStack.jsx';
+import ModalMain from '../ModalMain/ModalMain.jsx';
+import styles from './modal.css';
 
 const Modal = ({ show, photos, shallowInd, toggleModal }) => {
   // shallowInd passes in the index of main that existed when the modal was
@@ -13,11 +14,11 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
   // modalMain by updating the modalIndex whenever the shallowInd
   // changes, and allowing modalMain to change when the modalIndex is changed
   useEffect(() => {
-    setModalIndex(shallowInd)
-  }, [shallowInd])
+    setModalIndex(shallowInd);
+  }, [shallowInd]);
   useEffect(() => {
-    setModalMain(photos[modalIndex])
-  })
+    setModalMain(photos[modalIndex]);
+  });
 
   // this function is passed to the navigation buttons in modalMain and allows a
   // user to cycle through the thumbnails in the ModalStack to update ModalMain
@@ -27,22 +28,22 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
     if (direction === 'left') {
       if (modalIndex > 0) {
         setModalIndex(modalIndex - 1);
-        setModalMain(photos[modalIndex - 1])
+        setModalMain(photos[modalIndex - 1]);
       } else {
         setModalIndex(photos.length - 1);
-        setModalMain(photos[photos.length - 1])
+        setModalMain(photos[photos.length - 1]);
       }
     }
     if (direction === 'right') {
       if (modalIndex < photos.length - 1) {
         setModalIndex(modalIndex + 1);
-        setModalMain(photos[modalIndex + 1])
+        setModalMain(photos[modalIndex + 1]);
       } else {
         setModalIndex(0);
-        setModalMain(photos[0])
+        setModalMain(photos[0]);
       }
     }
-  })
+  });
 
   // only render the modal if the show state is true. this is true when the App
   // main image is clicked, and can be set to false by clicking the close button
@@ -55,15 +56,15 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
     return (
       // <div>
 
-      <div className='car-modal'>
-        <div className='car-shadeFilter'
-          onClick={() => { toggleModal(!show) }}>
+      <div className={styles.carModal}>
+        <div className={styles.carShadeFilter}
+          onClick={() => { toggleModal(!show); }}>
         </div>
         <img
           src='https://petsy-carousel-images.s3.us-east-2.amazonaws.com/Petsy+images/cancel.svg'
-          className='car-close-btn'
+          className={styles.carCloseBtn}
           alt='close modal'
-          onClick={() => { toggleModal(!show); setModalIndex(shallowInd) }}
+          onClick={() => { toggleModal(!show); setModalIndex(shallowInd); }}
         />
 
         <ModalMain
@@ -79,7 +80,7 @@ const Modal = ({ show, photos, shallowInd, toggleModal }) => {
         />
       </div>
       // </div>
-    )
+    );
   }
   return null;
 
