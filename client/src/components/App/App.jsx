@@ -90,7 +90,7 @@ const App = () => {
   // renders the thumbnail Stack and Main image
   // Modal viewer is only rendered when the 'show' state is true
   return (
-    <div className='carFullService'>
+    <div className={styles.carFullService}>
       <div className={styles.carousel}>
         <Stack
           photos={photos}
