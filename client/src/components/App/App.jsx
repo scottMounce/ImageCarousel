@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import styles from './app.css';
-import Stack from '../ThumbNailStack/ThumbnailStack.jsx';
+import Stack from '../ThumbnailStack/ThumbnailStack.jsx';
 import Main from '../Main/Main.jsx';
 import Modal from '../Modal/Modal.jsx';
 
