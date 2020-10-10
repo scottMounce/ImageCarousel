@@ -48,7 +48,7 @@ const App = () => {
       prodID = 1;
     }
 
-    axios.get(`/products/${prodID}`)
+    axios.get(`http://ec2-13-57-216-206.us-west-1.compute.amazonaws.com:3001/products/${prodID}`)
       .then((response) => {
         setPhotos(response.data);
         setMain(response.data[0]);
