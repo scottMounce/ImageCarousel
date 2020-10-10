@@ -48,7 +48,7 @@ const App = () => {
       prodID = 1;
     }
 
-    axios.get(`/products/${prodID}`)
+    axios.get(`54.215.230.226:3000/products/${prodID}`)
       .then((response) => {
         setPhotos(response.data);
         setMain(response.data[0]);
