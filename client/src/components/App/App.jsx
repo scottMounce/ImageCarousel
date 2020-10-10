@@ -48,7 +48,7 @@ const App = () => {
       prodID = 1;
     }
 
-    axios.get(`http://localhost:3000/products/${prodID}`)
+    axios.get(`/products/${prodID}`)
       .then((response) => {
         setPhotos(response.data);
         setMain(response.data[0]);
